@@ -75,7 +75,7 @@ typings/
 # FuseBox cache
 .fusebox/
 
-venv
+server/venv
 **/*.pyc
 node_modules/
 build
