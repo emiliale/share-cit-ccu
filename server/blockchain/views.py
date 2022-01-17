@@ -6,25 +6,25 @@ from uuid import uuid4
 import socket
 from urllib.parse import urlparse
 from django.http import JsonResponse, HttpResponse, HttpRequest
-from django.views.decorators.csrf import csrf_exempt #New
+from django.views.decorators.csrf import csrf_exempt
 
 
 class Blockchain:
 
     def __init__(self):
         self.chain = []
-        self.transactions = [] #New
+        self.transactions = []
         self.create_block(nonce = 1, previous_hash = '0')
-        self.nodes = set() #New
+        self.nodes = set()
 
     def create_block(self, nonce, previous_hash):
         block = {'index': len(self.chain) + 1,
                  'timestamp': str(datetime.datetime.now()),
                  'nonce': nonce,
                  'previous_hash': previous_hash,
-                 'transactions': self.transactions #New
+                 'transactions': self.transactions
                 }
-        self.transactions = [] #New
+        self.transactions = []
         self.chain.append(block)
         return block
 
@@ -62,7 +62,7 @@ class Blockchain:
             block_index += 1
         return True
 
-    def add_transaction(self, sender, receiver, amount, time): #New
+    def add_transaction(self, sender, receiver, amount, time):
         self.transactions.append({'sender': sender,
                                   'receiver': receiver,
                                   'amount': amount,
@@ -70,12 +70,12 @@ class Blockchain:
         previous_block = self.get_last_block()
         return previous_block['index'] + 1
 
-    def add_node(self, address): #New
+    def add_node(self, address):
         parsed_url = urlparse(address)
         self.nodes.add(parsed_url.netloc)
 
 
-    def replace_chain(self): #New
+    def replace_chain(self):
         network = self.nodes
         longest_chain = None
         max_length = len(self.chain)
@@ -96,8 +96,8 @@ class Blockchain:
 # Creating our Blockchain
 blockchain = Blockchain()
 # Creating an address for the node running our server
-node_address = str(uuid4()).replace('-', '') #New
-root_node = 'e36f0158f0aed45b3bc755dc52ed4560d' #New
+node_address = str(uuid4()).replace('-', '')
+root_node = 'e36f0158f0aed45b3bc755dc52ed4560d'
 
 # Mining a new block
 def mine_block(request):
@@ -135,7 +135,7 @@ def is_valid(request):
 
 # Adding a new transaction to the Blockchain
 @csrf_exempt
-def add_transaction(request): #New
+def add_transaction(request):
     if request.method == 'POST':
         received_json = json.loads(request.body)
         transaction_keys = ['sender', 'receiver', 'amount','time']
@@ -147,7 +147,7 @@ def add_transaction(request): #New
 
 # Connecting new nodes
 @csrf_exempt
-def connect_node(request): #New
+def connect_node(request):
     if request.method == 'POST':
         received_json = json.loads(request.body)
         nodes = received_json.get('nodes')
@@ -160,7 +160,7 @@ def connect_node(request): #New
     return JsonResponse(response)
 
 # Replacing the chain by the longest chain if needed
-def replace_chain(request): #New
+def replace_chain(request):
     if request.method == 'GET':
         is_chain_replaced = blockchain.replace_chain()
         if is_chain_replaced:
