@@ -86,6 +86,14 @@ class Tab extends React.Component {
                     </Form.Item>
                   </Form>
                 </div>
+                <Button
+                  type="primary"
+                  shape="round"
+                  className="button"
+                  style={{ background: "#eb2f96", borderColor: "#ffffff" }}
+                >
+                  Search  
+                </Button>
             </TabPane>
 
           <TabPane       
@@ -135,6 +143,14 @@ class Tab extends React.Component {
                     </Form.Item>
                   </Form>
                 </div>
+                <Button
+                  type="primary"
+                  shape="round"
+                  className="button"
+                  style={{ background: "#eb2f96", borderColor: "#ffffff" }}
+                >
+                  Share  
+                </Button>
             </TabPane>
         </Tabs>
       </div>
@@ -148,14 +164,6 @@ class Main extends React.Component {
       <div >
         <center>
         <Tab />
-        <Button
-          type="primary"
-          shape="round"
-          className="button"
-          style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-        >
-          Share  
-        </Button>
         </center>
       </div>
     );
