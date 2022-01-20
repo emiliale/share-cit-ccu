@@ -1,37 +1,142 @@
-import React from "react";
-import { Input, Button, DatePicker, TimePicker, InputNumber, Slider} from 'antd';
+import React, { useState } from "react";
+import { Input, Button, DatePicker, TimePicker, InputNumber, Form, TreeSelect, Tabs } from 'antd';
 import { Typography } from 'antd';
 import "./main.css"
 import "antd/dist/antd.css"
 import {
-  EuroOutlined
+  SearchOutlined,
+  PlusOutlined,
 } from '@ant-design/icons';
 
 const { Title } = Typography;
+const { TreeNode } = TreeSelect;
+const { TabPane } = Tabs;
 
 function onChange(date, dateString) {
   console.log(date, dateString);
 }
 
-
-class IconSlider extends React.Component {
-  state = {
-    value: 0,
+const Tree = () => {
+  const [value, setValue] = useState(undefined);
+  const onChange = () => {
+    setValue(value);
   };
+  return (
+    <TreeSelect
+      showSearch
+      style={{ width: '100%' }}
+      value={value}
+      dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+      placeholder="Trip Frequency"
+      allowClear
+      treeDefaultExpandAll
+      onChange={onChange}
+    >
+      <TreeNode value="Daily" title="Daily"></TreeNode>
+      <TreeNode value="Weekly" title="Weekly"></TreeNode>
+      <TreeNode value="Monthly" title="Monthly"></TreeNode>
+      <TreeNode value="Esporadic" title="Sporadic"></TreeNode>
+    </TreeSelect>
+  );
+};
 
-  handleChange = value => {
-    this.setState({ value });
+
+class Tab extends React.Component {
+  state = { size: 'Large' };
+
+  onChange = e => {
+    this.setState({ size: e.target.value });
   };
 
   render() {
-    const { max, min } = this.props;
-    const { value } = this.state;
-    const mid = ((max - min) / 2).toFixed(5);
-    const preColorCls = value >= mid ? '' : 'icon-wrapper-active';
+    const { size } = this.state;
     return (
-      <div className="icon-wrapper">
-        <EuroOutlined className={preColorCls} />
-        <Slider {...this.props} onChange={this.handleChange} value={value} />
+      <div>
+        <Tabs defaultActiveKey="1" type="card" size={size} centered>
+          <TabPane       
+            tab={
+              <span>
+                <SearchOutlined/>
+                Search
+              </span>
+              } 
+              key="1">
+                <Title className="title">Need a ride?</Title>
+        
+                <div className="center">
+                  <Form layout="inline">
+                    <Form.Item>
+                      <Input className="" placeholder="From..." />
+                    </Form.Item>
+
+                    <Form.Item>
+                      <Input placeholder="To..." />
+                    </Form.Item>
+
+                    <Form.Item>
+                      <DatePicker placeholder="Date" />
+                    </Form.Item>
+
+                    <Form.Item>
+                      <TimePicker.RangePicker onChange={onChange}  format="HH:mm" />
+                    </Form.Item>
+
+                    <Form.Item>
+                      <InputNumber placeholder="No. passagenrs" min={1} max={7} onChange={onChange} />
+                    </Form.Item>
+                  </Form>
+                </div>
+            </TabPane>
+
+          <TabPane       
+            tab={
+              <span>
+                <PlusOutlined/>
+                Post
+              </span>
+              } 
+              key="2">
+
+                <Title className="title">Share your ride</Title>
+        
+                <div className="center">
+                  <Form layout="inline">
+                    <Form.Item>
+                      <Input className="" placeholder="From..." />
+                    </Form.Item>
+
+                    <Form.Item>
+                      <Input placeholder="To..." />
+                    </Form.Item>
+
+                    <Form.Item>
+                      <DatePicker placeholder="Date" onChange={onChange} />
+                    </Form.Item>
+
+                    <Form.Item>
+                    <TimePicker placeholder="Time" format="HH:mm" />
+                    </Form.Item>
+
+                    <Form.Item>
+                      <InputNumber placeholder="Seats" min={1} max={7} onChange={onChange} />
+                    </Form.Item>
+
+                    <Form.Item>
+                      <InputNumber 
+                        placeholder="Price" 
+                        min={1} max={1000000} 
+                        onChange={onChange}
+                        formatter={value => `€ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 
+                        />
+                    </Form.Item>
+
+                    <Form.Item>
+                      <Tree />
+                    </Form.Item>
+                  </Form>
+                </div>
+            </TabPane>
+        </Tabs>
       </div>
     );
   }
@@ -40,18 +145,17 @@ class IconSlider extends React.Component {
 class Main extends React.Component {
   render() {
     return (
-      <div>
+      <div >
         <center>
-        <Title>Search for a ride </Title>
-        <Button>Search</Button>
-        <Button>Post</Button>
-
-        <Input placeholder="From..." />
-        <Input placeholder="To..." />
-        <DatePicker onChange={onChange} />
-        <TimePicker format="HH:mm" />
-        <InputNumber placeholder="Seats" min={1} max={7} onChange={onChange} />
-        <IconSlider min={0} />
+        <Tab />
+        <Button
+          type="primary"
+          shape="round"
+          className="button"
+          style={{ background: "#eb2f96", borderColor: "#ffffff" }}
+        >
+          Share  
+        </Button>
         </center>
       </div>
     );
