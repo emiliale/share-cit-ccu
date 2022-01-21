@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Button, DatePicker, TimePicker, InputNumber, Form, TreeSelect, Tabs } from 'antd';
+import { Input, Button, DatePicker, TimePicker, InputNumber, Form, TreeSelect, Tabs, Modal } from 'antd';
 import { Typography } from 'antd';
 import "./main.css"
 import "antd/dist/antd.css"
@@ -7,6 +7,7 @@ import {
   SearchOutlined,
   PlusOutlined,
 } from '@ant-design/icons';
+import { Link } from "react-router-dom";
 
 const { Title } = Typography;
 const { TreeNode } = TreeSelect;
@@ -14,6 +15,28 @@ const { TabPane } = Tabs;
 
 function onChange(date, dateString) {
   console.log(date, dateString);
+}
+
+function info_search() {
+  Modal.info({
+    content: (
+      <div>
+        <p>Searching for rides!</p>
+      </div>
+    ),
+    onOk() {},
+  });
+}
+
+function info_post() {
+  Modal.info({
+    content: (
+      <div>
+        <p>Your ride has been shared!</p>
+      </div>
+    ),
+    onOk() {},
+  });
 }
 
 const Tree = () => {
@@ -66,7 +89,7 @@ class Tab extends React.Component {
                 <div className="center">
                   <Form layout="inline">
                     <Form.Item>
-                      <Input className="" placeholder="From..." />
+                      <Input placeholder="From..." />
                     </Form.Item>
 
                     <Form.Item>
@@ -86,14 +109,17 @@ class Tab extends React.Component {
                     </Form.Item>
                   </Form>
                 </div>
-                <Button
-                  type="primary"
-                  shape="round"
-                  className="button"
-                  style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-                >
-                  Search  
-                </Button>
+                <Link to="/choose_rides/">
+                  <Button 
+                    type="primary"
+                    shape="round"
+                    className="button"
+                    style={{ background: "#eb2f96", borderColor: "#ffffff" }}
+                    onClick={info_search}
+                    >
+                      Search
+                  </Button>
+                </Link>
             </TabPane>
 
           <TabPane       
@@ -143,13 +169,14 @@ class Tab extends React.Component {
                     </Form.Item>
                   </Form>
                 </div>
-                <Button
+                <Button 
                   type="primary"
                   shape="round"
                   className="button"
                   style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-                >
-                  Share  
+                  onClick={info_post}
+                  >
+                    Share
                 </Button>
             </TabPane>
         </Tabs>
@@ -163,7 +190,7 @@ class Main extends React.Component {
     return (
       <div >
         <center>
-        <Tab />
+          <Tab />
         </center>
       </div>
     );
