@@ -2,11 +2,7 @@ import axios from "axios";
 import * as actionTypes from "./actionTypes";
 import { notification } from "antd";
 
-const env = process.env.NODE_ENV || "development";
-const serverUrl =
-  env === "development"
-    ? "http://127.0.0.1:8000"
-    : "https://trip-companion-server.herokuapp.com";
+const serverUrl = "http://127.0.0.1:8000";
 
 export const authStart = () => {
   return {

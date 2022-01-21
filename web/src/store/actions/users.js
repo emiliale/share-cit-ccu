@@ -3,11 +3,7 @@ import { requestData, finishRequest } from "./requests";
 
 export const RECEIVE_USERS = "RECEIVE_USERS";
 
-const env = process.env.NODE_ENV || "development";
-const serverUrl =
-  env === "development"
-    ? "http://127.0.0.1:8000"
-    : "https://trip-companion-server.herokuapp.com";
+const serverUrl = "http://127.0.0.1:8000";
 
 export function receiveUsers(data) {
   return {
