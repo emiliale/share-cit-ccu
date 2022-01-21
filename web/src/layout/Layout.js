@@ -5,9 +5,36 @@ import { UserOutlined } from "@ant-design/icons";
 import { connect } from "react-redux";
 import * as actions from "../store/actions/auth";
 import "./layout.css";
+import { Dropdown } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import { Avatar } from 'antd';
+
 
 const { SubMenu } = Menu;
 const { Header, Content, Footer } = Layout;
+
+const menu = (
+  <Menu>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+        Profile
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="./Your Rides">
+        Your Rides
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+        Settings
+      </a>
+    </Menu.Item>
+    <Menu.Item danger>Log Out</Menu.Item>
+  </Menu>
+);
+
+
 
 class CustomLayout extends React.Component {
 
@@ -39,17 +66,17 @@ class CustomLayout extends React.Component {
             </Menu.Item>
             <Menu.Item key="2">
               <Link to="/">
-                <Typography><span style={{ color: "#ffff" }}>Share</span><span style={{ color: "#EF3E7E" }}>Cit</span></Typography>
+                <Typography id="sharecit" ><span style={{ color: "#ffff" }}>Share</span><span style={{ color: "#EF3E7E" } }>Cit</span></Typography>
               </Link>
             </Menu.Item>
             {!isAuth ? (
               <>
-                <Menu.Item style={{ float: "right" }} key="3">
+                <Menu.Item style={{ float: "left" }} key="3">
                   <Link to="/login/">
                     <Typography style={{ color: "#ffff" }}>Log in</Typography>
                   </Link>
                 </Menu.Item>
-                <Menu.Item style={{ float: "right" }} key="4">
+                <Menu.Item style={{ float: "left" }} key="4">
                   <Link to="/signup/">
                     <Typography style={{ color: "#ffff" }}>Sign up</Typography>
                   </Link>
@@ -58,7 +85,7 @@ class CustomLayout extends React.Component {
             ) : (
               <>
                 <SubMenu
-                  style={{ float: "right" }}
+                  style={{ float: "left" }}
                   key="sub1"
                   title={
                     <span>
@@ -79,16 +106,36 @@ class CustomLayout extends React.Component {
                 </SubMenu>
               </>
             )}
-            <Menu.Item style={{ float: "right" }} key="6">
-              <Link to="/help/">
-                <Typography style={{ color: "#ffff" }}>Help</Typography>
+
+            
+            <Menu.Item style={{ float: "left" }} key="6">
+              <Link to="/Your Rides/">
+                <Typography style={{ color: "#ffff" }}>Your Rides</Typography>
               </Link>
             </Menu.Item>
-            <Menu.Item style={{ float: "right" }} key="7">
+            <Menu.Item style={{ float: "left" }} key="7">
               <Link to="/about/">
                 <Typography style={{ color: "#ffff" }}>About</Typography>
               </Link>
             </Menu.Item>
+            <Menu.Item style={{ float: "left" }} key="8">
+              <Link to="/help/">
+                <Typography style={{ color: "#ffff" }}>Help</Typography>
+              </Link>
+            </Menu.Item>
+            
+
+            <Menu.Item style={{marginLeft: 'auto' }} key="9" id="nav-dropdown">
+            <Avatar icon={<UserOutlined />} />
+             &nbsp;  &nbsp;
+            <Dropdown overlay={menu}>
+            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+              Menu <DownOutlined />
+            </a>
+          </Dropdown>
+          </Menu.Item>
+
+
           </Menu>
         </Header>
         <Content style={{ padding: "0 50px" }}>
@@ -96,6 +143,7 @@ class CustomLayout extends React.Component {
             {this.props.children}
           </div>
         </Content>
+        
         <Footer style={{ textAlign: "center" }}>
         </Footer>
       </Layout>

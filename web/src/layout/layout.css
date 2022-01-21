@@ -8,3 +8,13 @@
 .ant-menu.ant-menu-light .ant-menu-submenu-active {
   border-bottom-color: #EF3E7E;
 }
+.nav-dropdown{
+  color: white;
+  font-weight: bold;
+  text-emphasis-color: white;
+  color-adjust: white;
+}
+
+#sharecit{
+  font-size: x-large;
+}
