@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from blockchain import views
 from blockchain.views import *
 
@@ -11,4 +11,8 @@ urlpatterns = [
     re_path('^add_transaction$', views.add_transaction, name="add_transaction"),
     re_path('^connect_node$', views.connect_node, name="connect_node"),
     re_path('^replace_chain$', views.replace_chain, name="replace_chain"),
+    path("administration/", include("administration.urls")),
+    path("car/", include("car.urls")),
+    path("location/", include("location.urls")),
+    path("ride/", include("ride.urls")),
 ]
