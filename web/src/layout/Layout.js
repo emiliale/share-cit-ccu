@@ -54,7 +54,7 @@ class CustomLayout extends React.Component {
               color: "white",
             }}
           >
-            <Menu.Item key="1">
+            <Menu.Item style={{ float: "left" }} key="1">
               <Link to="/">
                 <img
                   width={50}
@@ -64,9 +64,9 @@ class CustomLayout extends React.Component {
                 />
               </Link>
             </Menu.Item>
-            <Menu.Item key="2">
+            <Menu.Item style={{ float: "left" }} key="2">
               <Link to="/">
-                <Typography id="sharecit" ><span style={{ color: "#ffff" }}>Share</span><span style={{ color: "#EF3E7E" } }>Cit</span></Typography>
+              <Typography id="sharecit" ><span style={{ color: "#ffff" }}>Share</span><span style={{ color: "#EF3E7E" } }>Cit</span></Typography>
               </Link>
             </Menu.Item>
             {!isAuth ? (
@@ -107,7 +107,7 @@ class CustomLayout extends React.Component {
               </>
             )}
 
-            
+
             <Menu.Item style={{ float: "left" }} key="6">
               <Link to="/Your Rides/">
                 <Typography style={{ color: "#ffff" }}>Your Rides</Typography>
@@ -123,17 +123,17 @@ class CustomLayout extends React.Component {
                 <Typography style={{ color: "#ffff" }}>Help</Typography>
               </Link>
             </Menu.Item>
-            
 
-            <Menu.Item style={{marginLeft: 'auto' }} key="9" id="nav-dropdown">
-            <Avatar icon={<UserOutlined />} />
-             &nbsp;  &nbsp;
-            <Dropdown overlay={menu}>
-            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-              Menu <DownOutlined />
-            </a>
-          </Dropdown>
-          </Menu.Item>
+
+            <Menu.Item style={{ marginLeft: 'auto', float: "right" }} key="9" id="nav-dropdown">
+              <Avatar icon={<UserOutlined />} />
+              &nbsp;  &nbsp;
+              <Dropdown overlay={menu}>
+                <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                  Menu <DownOutlined />
+                </a>
+              </Dropdown>
+            </Menu.Item>
 
 
           </Menu>
@@ -143,7 +143,7 @@ class CustomLayout extends React.Component {
             {this.props.children}
           </div>
         </Content>
-        
+
         <Footer style={{ textAlign: "center" }}>
         </Footer>
       </Layout>
