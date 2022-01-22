@@ -16,7 +16,7 @@ const { Header, Content, Footer } = Layout;
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+      <a target="_blank">
         Profile
       </a>
     </Menu.Item>
@@ -26,7 +26,7 @@ const menu = (
       </a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+      <a target="_blank">
         Settings
       </a>
     </Menu.Item>

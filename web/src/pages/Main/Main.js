@@ -17,18 +17,7 @@ function onChange(date, dateString) {
   console.log(date, dateString);
 }
 
-function info_search() {
-  Modal.info({
-    content: (
-      <div>
-        <p>Searching for rides!</p>
-      </div>
-    ),
-    onOk() {},
-  });
-}
-
-function info_post() {
+function info() {
   Modal.info({
     content: (
       <div>
@@ -67,15 +56,23 @@ const Tree = () => {
 class Tab extends React.Component {
   state = { size: 'Large' };
 
-  onChange = e => {
-    this.setState({ size: e.target.value });
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: props.initialValue,
+    };
+  }
+
+  onChange = event => {
+    this.setState({ value: event.target.value });
+  }
 
   render() {
     const { size } = this.state;
     return (
       <div>
-        <Tabs defaultActiveKey="1" type="card" size={size} centered>
+        <Tabs defaultActiveKey="1" type="card" size={size} centered> 
           <TabPane       
             tab={
               <span>
@@ -115,7 +112,6 @@ class Tab extends React.Component {
                     shape="round"
                     className="button"
                     style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-                    onClick={info_search}
                     >
                       Search
                   </Button>
@@ -136,7 +132,7 @@ class Tab extends React.Component {
                 <div className="center">
                   <Form layout="inline">
                     <Form.Item>
-                      <Input className="" placeholder="From..." />
+                      <Input placeholder="From..." />
                     </Form.Item>
 
                     <Form.Item>
@@ -174,7 +170,7 @@ class Tab extends React.Component {
                   shape="round"
                   className="button"
                   style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-                  onClick={info_post}
+                  onClick={info}
                   >
                     Share
                 </Button>
@@ -196,8 +192,6 @@ class Main extends React.Component {
     );
   }
 }
-
-
 
 
 export default Main;

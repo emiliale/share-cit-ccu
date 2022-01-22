@@ -8,6 +8,7 @@ import About from "./pages/About/About";
 import Help from "./pages/Help/Help";
 import Rides from "./pages/Your Rides/yourrides";
 import Choose_rides from "./pages/Choose_rides/Choose_rides";
+
 const BaseRouter = () => (
   <div>
     <Route exact path="/" component={Main} />{" "}
