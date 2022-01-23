@@ -14,8 +14,8 @@ const { SubMenu } = Menu;
 const { Header, Content, Footer } = Layout;
 
 const menu = (
-  <Menu>
-    <Menu.Item>
+  <Menu >
+    <Menu.Item >
       <a target="_blank">
         Profile
       </a>

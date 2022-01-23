@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { List, Avatar, Skeleton, Divider, Descriptions, Button, Modal } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import "./Choose_rides.css"
+import {
+  withGoogleMap,
+  GoogleMap,
+  Marker,
+} from "react-google-maps";
 
 
 function info_request() {
@@ -19,12 +24,23 @@ function info_desc() {
   Modal.info({
     content: (
       <div>
-        <p>Your request has been sent!</p>
+        <p>Your profiles matches 75% of this user!</p>
       </div>
     ),
     onOk() {},
   });
 }
+
+const MapWithAMarker = withGoogleMap(props =>
+  <GoogleMap
+    defaultZoom={8}
+    defaultCenter={{ lat: -34.397, lng: 150.644 }}
+  >
+    <Marker
+      position={{ lat: -34.397, lng: 150.644 }}
+    />
+  </GoogleMap>
+);
 
 const InfiniteListExample = () => {
   const [loading, setLoading] = useState(false);
@@ -50,8 +66,12 @@ const InfiniteListExample = () => {
     loadMoreData();
   }, []);
 
+  
+
+
+
   return (
-    <div
+    <div 
       id="scrollableDiv"
       style={{
         height: 400,
@@ -101,7 +121,10 @@ const InfiniteListExample = () => {
           )}
         />
       </InfiniteScroll>
+
     </div>
+
+
   );
 };
 
@@ -110,15 +133,26 @@ class Choose_rides extends React.Component {
   render() {
     return (
       <div>
-        <Descriptions className="center" bordered>
-            <Descriptions.Item label="From:">Alameda</Descriptions.Item>
+        <Descriptions className="center" bordered size={"small"} >
+            <Descriptions.Item  label="From:" >Alameda</Descriptions.Item>
             <Descriptions.Item label="To:">Saldanha</Descriptions.Item>
             <Descriptions.Item label="Date:">26.12.2021</Descriptions.Item>
             <Descriptions.Item label="Hour:">18:00</Descriptions.Item>
             <Descriptions.Item label="No. passengers" span={2}>1</Descriptions.Item>
         </Descriptions>
+        <div className="row">
+        <div className="left-panel box" >
 
         <InfiniteListExample/>
+        </div>
+
+        <div className="right-panel box">
+        <MapWithAMarker
+          containerElement={<div style={{ height: `400px` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        />
+        </div>
+        </div>
       </div>
     );
   }
