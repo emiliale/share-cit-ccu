@@ -34,10 +34,10 @@ function info_desc() {
 const MapWithAMarker = withGoogleMap(props =>
   <GoogleMap
     defaultZoom={8}
-    defaultCenter={{ lat: -34.397, lng: 150.644 }}
+    defaultCenter={{ lat: 38.736832, lng: -9.137989 }}
   >
     <Marker
-      position={{ lat: -34.397, lng: 150.644 }}
+      position={{ lat: 38.736832, lng: -9.137989}}
     />
   </GoogleMap>
 );
@@ -98,23 +98,20 @@ const InfiniteListExample = () => {
                 description={item.email}
               />
               <div>
-                <Button 
-                  type="primary"
+              <Button 
                   shape="round"
-                  className="button"
-                  style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-                  onClick={info_request}
+                  style={{ background: "#E5E5E5", borderColor: "#ffffff" }}
+                  onClick={info_desc}
                   >
-                    Request
+                    See more
                 </Button> 
                 <Button 
                   type="primary"
                   shape="round"
-                  className="button"
                   style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-                  onClick={info_desc}
+                  onClick={info_request}
                   >
-                    See more
+                    Request
                 </Button> 
               </div>
             </List.Item>
