@@ -16,6 +16,8 @@ function onChange(date, dateString) {
   console.log(date, dateString);
 }
 
+
+
 function info() {
   Modal.info({
     content: (
@@ -53,7 +55,7 @@ const Tree = () => {
 
 
 class Tab extends React.Component {
-  state = { size: 'Large' };
+  state = { size: 'Large', from: '', to: '' };
 
   constructor(props) {
     super(props);
@@ -62,30 +64,37 @@ class Tab extends React.Component {
       value: props.initialValue,
     };
   }
-
-  onChange = event => {
-    this.setState({ value: event.target.value });
+  
+  getValue = (val, e) => {
+    this.setState({ [val]: e });
   }
-
   render() {
-    const { size } = this.state;
+    const { size} = this.state;
     return (
+
       <div>
-        <Tabs defaultActiveKey="1" type="card" size={size} centered> 
-          <TabPane       
+        <Tabs defaultActiveKey="1" type="card" size={size} centered>
+          <TabPane
             tab={
               <span>
                 <SearchOutlined/>
                 Search
               </span>
-              } 
+              }
               key="1">
                 <Title className="title">Need a ride?</Title>
-        
+
                 <div className="center">
                   <Form layout="inline">
                     <Form.Item>
-                      <Input placeholder="From..." />
+                       <Input placeholder="From..."  
+
+                      onChange={(e) => { this.getValue('from', e.target.value) }}
+                      
+                      
+                    /> 
+                    <h1> {this.state.from} </h1>
+                  
                     </Form.Item>
 
                     <Form.Item>
@@ -106,7 +115,7 @@ class Tab extends React.Component {
                   </Form>
                 </div>
                 <Link to="/choose_rides/">
-                  <Button 
+                  <Button
                     type="primary"
                     shape="round"
                     className="button"
@@ -117,17 +126,17 @@ class Tab extends React.Component {
                 </Link>
             </TabPane>
 
-          <TabPane       
+          <TabPane
             tab={
               <span>
                 <PlusOutlined/>
                 Post
               </span>
-              } 
+              }
               key="2">
 
                 <Title className="title">Share your ride</Title>
-        
+
                 <div className="center">
                   <Form layout="inline">
                     <Form.Item>
@@ -151,11 +160,11 @@ class Tab extends React.Component {
                     </Form.Item>
 
                     <Form.Item>
-                      <InputNumber 
-                        placeholder="Price" 
-                        min={1} max={1000000} 
+                      <InputNumber
+                        placeholder="Price"
+                        min={1} max={1000000}
                         onChange={onChange}
-                        formatter={value => `€ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 
+                        formatter={value => `€ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                         />
                     </Form.Item>
 
@@ -164,7 +173,7 @@ class Tab extends React.Component {
                     </Form.Item>
                   </Form>
                 </div>
-                <Button 
+                <Button
                   type="primary"
                   shape="round"
                   className="button"
