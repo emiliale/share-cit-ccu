@@ -7,6 +7,9 @@ import {
   PlusOutlined,
 } from '@ant-design/icons';
 import { Link } from "react-router-dom";
+import Component2 from "./Info.js";
+import { Flatlist } from "react";
+
 
 const { Title } = Typography;
 const { TreeNode } = TreeSelect;
@@ -64,12 +67,18 @@ class Tab extends React.Component {
       value: props.initialValue,
     };
   }
-  
+
   getValue = (val, e) => {
     this.setState({ [val]: e });
   }
+
+
+
+
   render() {
     const { size} = this.state;
+  
+
     return (
 
       <div>
@@ -114,12 +123,21 @@ class Tab extends React.Component {
                     </Form.Item>
                   </Form>
                 </div>
-                <Link to="/choose_rides/">
+                
+                <Link
+                  to={{
+                    pathname: "/choose_rides/",
+                    state:  this.state 
+                  }}
+                
+                
+            >
                   <Button
                     type="primary"
                     shape="round"
                     className="button"
                     style={{ background: "#eb2f96", borderColor: "#ffffff" }}
+
                     >
                       Search
                   </Button>
@@ -173,30 +191,38 @@ class Tab extends React.Component {
                     </Form.Item>
                   </Form>
                 </div>
+
                 <Button
                   type="primary"
                   shape="round"
                   className="button"
-                  style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-                  onClick={info}
+                   style={{ background: "#eb2f96", borderColor: "#ffffff" }}
                   >
                     Share
                 </Button>
+
             </TabPane>
         </Tabs>
-      </div>
+      </div>  
+
+        
+       
     );
   }
+
 }
 
 class Main extends React.Component {
   render() {
+
     return (
       <div >
         <center>
           <Tab />
         </center>
+
       </div>
+
     );
   }
 }
