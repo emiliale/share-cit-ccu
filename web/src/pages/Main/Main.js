@@ -7,8 +7,6 @@ import {
   PlusOutlined,
 } from '@ant-design/icons';
 import { Link } from "react-router-dom";
-import Component2 from "./Info.js";
-import { Flatlist } from "react";
 
 
 const { Title } = Typography;
@@ -18,8 +16,6 @@ const { TabPane } = Tabs;
 function onChange(date, dateString) {
   console.log(date, dateString);
 }
-
-
 
 function info() {
   Modal.info({
@@ -58,8 +54,8 @@ const Tree = () => {
 
 
 class Tab extends React.Component {
-  state = { size: 'Large', from: '', to: '', date: '', time:'', seats: 0};
-
+  state = { size: 'Large', from: '', to: '', date: '', time:'', seats: ''};
+  
   constructor(props) {
     super(props);
 
@@ -71,16 +67,9 @@ class Tab extends React.Component {
   getValue = (val, e) => {
     this.setState({ [val]: e });
   }
-
-
-
-
   render() {
-    const { size} = this.state;
-  
-
-    return (
-
+    const { size } = this.state;
+      return (
       <div>
         <Tabs defaultActiveKey="1" type="card" size={size} centered>
           <TabPane
@@ -96,44 +85,32 @@ class Tab extends React.Component {
                 <div className="center">
                   <Form layout="inline">
                     <Form.Item>
-                       <Input placeholder="From..."  
-
-                      onChange={(e) => { this.getValue('from', e.target.value) }}
-                      
-                      
-                    /> 
-                    <h1> {this.state.from} </h1>
-                  
+                      <Input placeholder="From..."  
+                        onChange={(e) => { this.getValue('from', e.target.value) }}
+                      />                   
                     </Form.Item>
 
                     <Form.Item>
                       <Input placeholder="To..." 
-                      
                       onChange={(e) => { this.getValue('to', e.target.value) }}
-                      
                       />
                     </Form.Item>
 
                     <Form.Item>
-                      <DatePicker placeholder="Date" 
-                    //  onSelect={(e) => { this.getValue('date', e.target.value) }}
-
-
+                      <Input type="date" placeholder="Date" 
+                      onChange={(e) => { this.getValue('date', e.target.value) }}
                       />
                     </Form.Item>
 
                     <Form.Item>
-                      <TimePicker.RangePicker onChange={onChange}  
-                    //  onChange={(e) => { this.getValue('time', e.target.value) }}
-                      format="HH:mm" />
+                      <Input type="time" placeholder="Date" 
+                        onChange={(e) => { this.getValue('time', e.target.value) }}
+                      />
                     </Form.Item>
 
                     <Form.Item>
-                      <InputNumber placeholder="No. passagenrs" min={1} max={7} 
-                      
-                     // onChange={(e) => { this.getValue('seats', e.target.value) }}
-
-                      
+                      <Input type="number" placeholder="No. passengers" min={1} max={7} style={{ width: '150px' }}
+                      onChange={(e) => { this.getValue('seats', e.target.value) }}
                       />
                     </Form.Item>
                   </Form>
@@ -144,9 +121,7 @@ class Tab extends React.Component {
                     pathname: "/choose_rides/",
                     state:  this.state 
                   }}
-                
-                
-            >
+                >
                   <Button
                     type="primary"
                     shape="round"

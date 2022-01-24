@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { List, Avatar, Skeleton, Divider, Descriptions, Button, Modal, Tag } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import "./Choose_rides.css"
-import Component2 from "../Main/Info.js"
-
 import {
   withGoogleMap,
   GoogleMap,
