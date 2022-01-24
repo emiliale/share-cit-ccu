@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Input, Button, DatePicker, TimePicker, InputNumber, Form, TreeSelect, Tabs, Modal } from 'antd';
-import { Typography } from 'antd';
+import { Input, Button, DatePicker, TimePicker, InputNumber, Form, TreeSelect, Tabs, Modal, Typography } from 'antd';
 import "./main.css"
 import "antd/dist/antd.css"
 import {

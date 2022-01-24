@@ -16,7 +16,7 @@ const { Header, Content, Footer } = Layout;
 const menu = (
   <Menu >
     <Menu.Item >
-      <a target="_blank">
+      <a target="_blank" href="./Profile">
         Profile
       </a>
     </Menu.Item>
@@ -129,7 +129,7 @@ class CustomLayout extends React.Component {
               <Avatar icon={<UserOutlined />} />
               &nbsp;  &nbsp;
               <Dropdown overlay={menu}>
-                <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                <a style={{ color: "#ffff" }} className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                   Menu <DownOutlined />
                 </a>
               </Dropdown>

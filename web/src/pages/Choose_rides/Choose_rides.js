@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { List, Avatar, Skeleton, Divider, Descriptions, Button, Modal } from 'antd';
+import { List, Avatar, Skeleton, Divider, Descriptions, Button, Modal, Tag } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import "./Choose_rides.css"
 import {
@@ -136,12 +136,16 @@ class Choose_rides extends React.Component {
             <Descriptions.Item label="Date:">26.12.2021</Descriptions.Item>
             <Descriptions.Item label="Hour:">18:00</Descriptions.Item>
             <Descriptions.Item label="No. passengers" span={2}>1</Descriptions.Item>
+            <Descriptions.Item label="Preferences:">
+              <Tag>No pets</Tag>
+              <Tag>No smoking</Tag>
+            </Descriptions.Item>
         </Descriptions>
+        
         <div className="row">
-        <div className="left-panel box" >
-
-        <InfiniteListExample/>
-        </div>
+          <div className="left-panel box" >
+            <InfiniteListExample/>
+          </div>
 
         <div className="right-panel box">
         <MapWithAMarker
