@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { List, Avatar, Skeleton, Divider, Descriptions, Button, Modal, Tag } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import "./Choose_rides.css"
+import Component2 from "../Main/Info.js"
+
 import {
   withGoogleMap,
   GoogleMap,
@@ -131,11 +133,11 @@ class Choose_rides extends React.Component {
     return (
       <div>
         <Descriptions className="center" bordered size={"small"} >
-            <Descriptions.Item  label="From:" >Alameda</Descriptions.Item>
-            <Descriptions.Item label="To:">Saldanha</Descriptions.Item>
-            <Descriptions.Item label="Date:">26.12.2021</Descriptions.Item>
-            <Descriptions.Item label="Hour:">18:00</Descriptions.Item>
-            <Descriptions.Item label="No. passengers" span={2}>1</Descriptions.Item>
+            <Descriptions.Item  label="From:" >{this.props.location.state.from}</Descriptions.Item>
+            <Descriptions.Item label="To:">{this.props.location.state.to}</Descriptions.Item>
+            <Descriptions.Item label="Date:">{this.props.location.state.date}</Descriptions.Item>
+            <Descriptions.Item label="Hour:">{this.props.location.state.time}</Descriptions.Item>
+            <Descriptions.Item label="No. passengers" span={2}>{this.props.location.state.seats}</Descriptions.Item>
             <Descriptions.Item label="Preferences:">
               <Tag>No pets</Tag>
               <Tag>No smoking</Tag>

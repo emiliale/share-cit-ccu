@@ -58,7 +58,7 @@ const Tree = () => {
 
 
 class Tab extends React.Component {
-  state = { size: 'Large', from: '', to: '' };
+  state = { size: 'Large', from: '', to: '', date: '', time:'', seats: 0};
 
   constructor(props) {
     super(props);
@@ -107,19 +107,34 @@ class Tab extends React.Component {
                     </Form.Item>
 
                     <Form.Item>
-                      <Input placeholder="To..." />
+                      <Input placeholder="To..." 
+                      
+                      onChange={(e) => { this.getValue('to', e.target.value) }}
+                      
+                      />
                     </Form.Item>
 
                     <Form.Item>
-                      <DatePicker placeholder="Date" />
+                      <DatePicker placeholder="Date" 
+                    //  onSelect={(e) => { this.getValue('date', e.target.value) }}
+
+
+                      />
                     </Form.Item>
 
                     <Form.Item>
-                      <TimePicker.RangePicker onChange={onChange}  format="HH:mm" />
+                      <TimePicker.RangePicker onChange={onChange}  
+                    //  onChange={(e) => { this.getValue('time', e.target.value) }}
+                      format="HH:mm" />
                     </Form.Item>
 
                     <Form.Item>
-                      <InputNumber placeholder="No. passagenrs" min={1} max={7} onChange={onChange} />
+                      <InputNumber placeholder="No. passagenrs" min={1} max={7} 
+                      
+                     // onChange={(e) => { this.getValue('seats', e.target.value) }}
+
+                      
+                      />
                     </Form.Item>
                   </Form>
                 </div>
