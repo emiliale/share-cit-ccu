@@ -103,7 +103,7 @@ class Tab extends React.Component {
                     </Form.Item>
 
                     <Form.Item>
-                      <Input type="time" placeholder="Date" 
+                      <Input type="time" placeholder="Time" 
                         onChange={(e) => { this.getValue('time', e.target.value) }}
                       />
                     </Form.Item>
@@ -127,7 +127,6 @@ class Tab extends React.Component {
                     shape="round"
                     className="button"
                     style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-
                     >
                       Search
                   </Button>
@@ -156,23 +155,22 @@ class Tab extends React.Component {
                     </Form.Item>
 
                     <Form.Item>
-                      <DatePicker placeholder="Date" onChange={onChange} />
+                      <Input type="date" placeholder="Date" />
                     </Form.Item>
 
                     <Form.Item>
-                    <TimePicker placeholder="Time" format="HH:mm" />
+                    <Input type="time" placeholder="Time" />
                     </Form.Item>
 
                     <Form.Item>
-                      <InputNumber placeholder="Seats" min={1} max={7} onChange={onChange} />
+                      <Input type="number" placeholder="Seats" min={1} max={7} />
                     </Form.Item>
 
                     <Form.Item>
-                      <InputNumber
+                      <Input
                         placeholder="Price"
                         min={1} max={1000000}
-                        onChange={onChange}
-                        formatter={value => `€ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                        prefix="€"
                         />
                     </Form.Item>
 
@@ -186,7 +184,8 @@ class Tab extends React.Component {
                   type="primary"
                   shape="round"
                   className="button"
-                   style={{ background: "#eb2f96", borderColor: "#ffffff" }}
+                  style={{ background: "#eb2f96", borderColor: "#ffffff" }}
+                  onClick={info}
                   >
                     Share
                 </Button>

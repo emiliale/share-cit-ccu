@@ -15,22 +15,16 @@ const { Header, Content, Footer } = Layout;
 
 const menu = (
   <Menu >
-    <Menu.Item >
-      <a target="_blank" href="./Profile">
-        Profile
-      </a>
+    <Menu.Item key="1">
+      <Link to="/profile/">Profile</Link>
     </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="./Your Rides">
-        Your Rides
-      </a>
+    <Menu.Item key="2"> 
+      <Link to="/your rides/">Your Rides</Link>
     </Menu.Item>
-    <Menu.Item>
-      <a target="_blank">
-        Settings
-      </a>
-    </Menu.Item>
-    <Menu.Item danger>Log Out</Menu.Item>
+{/*     <Menu.Item key="3">
+      <Link to="/your rides/">Settings</Link>
+    </Menu.Item > */}
+    <Menu.Item key="3" danger>Log Out</Menu.Item>
   </Menu>
 );
 
