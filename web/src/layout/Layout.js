@@ -12,29 +12,28 @@ import { Avatar } from 'antd';
 
 const { SubMenu } = Menu;
 const { Header, Content, Footer } = Layout;
-
-const menu = (
-  <Menu >
-    <Menu.Item key="1">
-      <Link to="/profile/">Profile</Link>
-    </Menu.Item>
-    <Menu.Item key="2"> 
-      <Link to="/your rides/">Your Rides</Link>
-    </Menu.Item>
-{/*     <Menu.Item key="3">
-      <Link to="/your rides/">Settings</Link>
-    </Menu.Item > */}
-    <Menu.Item key="3" danger>Log Out</Menu.Item>
-  </Menu>
-);
-
-
-
 class CustomLayout extends React.Component {
 
   render() {
     let isAuth = localStorage.getItem("userId");
     console.log(isAuth);
+    const menu = (
+      <Menu >
+        <Menu.Item key="1">
+          <Link to="/profile/">Profile</Link>
+        </Menu.Item>
+        <Menu.Item key="2">
+          <Link to="/your_rides/">Your Rides</Link>
+        </Menu.Item>
+        <Menu.Item
+          key="3" danger
+          onClick={() => {
+            this.props.logout();
+            this.forceUpdate();
+          }}
+        >Log Out</Menu.Item>
+      </Menu>
+    );
     return (
       <Layout className="layout" style={{ backgroundColor: "##3241a2" }}>
         <Header style={{ backgroundColor: "#2a3576" }}>
@@ -48,7 +47,7 @@ class CustomLayout extends React.Component {
               color: "white",
             }}
           >
-            <Menu.Item style={{ float: "left" }} key="1">
+            <Menu.Item style={{ float: "left" }} key="3">
               <Link to="/">
                 <img
                   width={50}
@@ -58,78 +57,47 @@ class CustomLayout extends React.Component {
                 />
               </Link>
             </Menu.Item>
-            <Menu.Item style={{ float: "left" }} key="2">
+            <Menu.Item style={{ float: "left" }} key="4">
               <Link to="/">
-              <Typography id="sharecit" ><span style={{ color: "#ffff" }}>Share</span><span style={{ color: "#EF3E7E" } }>Cit</span></Typography>
+                <Typography id="sharecit" ><span style={{ color: "#ffff" }}>Share</span><span style={{ color: "#EF3E7E" }}>Cit</span></Typography>
               </Link>
             </Menu.Item>
             {!isAuth ? (
               <>
-                <Menu.Item style={{ float: "left" }} key="3">
-                  <Link to="/login/">
-                    <Typography style={{ color: "#ffff" }}>Log in</Typography>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item style={{ float: "left" }} key="4">
+                <Menu.Item style={{ float: "right" }} key="5">
                   <Link to="/signup/">
                     <Typography style={{ color: "#ffff" }}>Sign up</Typography>
+                  </Link>
+                </Menu.Item>
+                <Menu.Item style={{ float: "right" }} key="6">
+                  <Link to="/login/">
+                    <Typography style={{ color: "#ffff" }}>Log in</Typography>
                   </Link>
                 </Menu.Item>
               </>
             ) : (
               <>
-                <SubMenu
-                  style={{ float: "left" }}
-                  key="sub1"
-                  title={
-                    <span>
-                      <UserOutlined />
-                      Profile
-                    </span>
-                  }
-                >
-                  <Menu.Item
-                    key="5"
-                    onClick={() => {
-                      this.props.logout();
-                      this.forceUpdate();
-                    }}
-                  >
-                    Logout
-                  </Menu.Item>
-                </SubMenu>
+                <Menu.Item style={{ marginLeft: 'auto', float: "right" }} key="7" id="nav-dropdown">
+                  <Avatar icon={<UserOutlined />} />
+                  &nbsp;  &nbsp;
+                  <Dropdown overlay={menu}>
+                    <a style={{ color: "#ffff" }} className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                      Menu <DownOutlined />
+                    </a>
+                  </Dropdown>
+                </Menu.Item>
               </>
             )}
-
-
-            <Menu.Item style={{ float: "left" }} key="6">
-              <Link to="/Your Rides/">
-                <Typography style={{ color: "#ffff" }}>Your Rides</Typography>
-              </Link>
-            </Menu.Item>
-            <Menu.Item style={{ float: "left" }} key="7">
+            <Menu.Item style={{ float: "left" }} key="8">
               <Link to="/about/">
                 <Typography style={{ color: "#ffff" }}>About</Typography>
               </Link>
             </Menu.Item>
-            <Menu.Item style={{ float: "left" }} key="8">
+            <Menu.Item style={{ float: "left" }} key="9">
               <Link to="/help/">
                 <Typography style={{ color: "#ffff" }}>Help</Typography>
               </Link>
             </Menu.Item>
-
-
-            <Menu.Item style={{ marginLeft: 'auto', float: "right" }} key="9" id="nav-dropdown">
-              <Avatar icon={<UserOutlined />} />
-              &nbsp;  &nbsp;
-              <Dropdown overlay={menu}>
-                <a style={{ color: "#ffff" }} className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                  Menu <DownOutlined />
-                </a>
-              </Dropdown>
-            </Menu.Item>
-
-
           </Menu>
         </Header>
         <Content style={{ padding: "0 50px" }}>
@@ -137,7 +105,6 @@ class CustomLayout extends React.Component {
             {this.props.children}
           </div>
         </Content>
-
         <Footer style={{ textAlign: "center" }}>
         </Footer>
       </Layout>

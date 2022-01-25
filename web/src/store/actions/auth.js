@@ -63,7 +63,7 @@ export const authLogin = (username, password) => {
             localStorage.setItem("expirationDate", expirationDate);
             dispatch(authSuccess(token));
             dispatch(checkAuthTimeout(3600));
-            window.location.replace("/trips/");
+            window.location.replace("/your_rides/");
           });
       })
       .catch((err) => {
@@ -97,7 +97,7 @@ export const authSignup = (username, email, password1, password2) => {
         dispatch(authSuccess(token));
         dispatch(checkAuthTimeout(3600));
         setTimeout(function () {
-          window.location.replace("/trips/");
+          window.location.replace("/your_rides/");
         }, 1000);
       })
       .catch((err) => {
