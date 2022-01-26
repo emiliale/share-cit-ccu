@@ -36,7 +36,7 @@ const Tree = () => {
   return (
     <TreeSelect
       showSearch
-      style={{ width: '100%' }}
+      style={{ width: '100%', borderRadius: '100px' }}
       value={value}
       dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
       placeholder="Trip Frequency"
@@ -85,31 +85,31 @@ class Tab extends React.Component {
                 <div className="center">
                   <Form layout="inline">
                     <Form.Item>
-                      <Input placeholder="From..."  
+                      <Input style={{borderRadius: '100px'}} placeholder="From..."  
                         onChange={(e) => { this.getValue('from', e.target.value) }}
                       />                   
                     </Form.Item>
 
                     <Form.Item>
-                      <Input placeholder="To..." 
+                      <Input style={{borderRadius: '100px'}} placeholder="To..." 
                       onChange={(e) => { this.getValue('to', e.target.value) }}
                       />
                     </Form.Item>
 
                     <Form.Item>
-                      <Input type="date" placeholder="Date" 
+                      <Input style={{borderRadius: '100px'}} type="date" placeholder="Date" 
                       onChange={(e) => { this.getValue('date', e.target.value) }}
                       />
                     </Form.Item>
 
                     <Form.Item>
-                      <Input type="time" placeholder="Time" 
+                      <Input style={{borderRadius: '100px'}} type="time" placeholder="Time" 
                         onChange={(e) => { this.getValue('time', e.target.value) }}
                       />
                     </Form.Item>
 
                     <Form.Item>
-                      <Input type="number" placeholder="No. passengers" min={1} max={7} style={{ width: '150px' }}
+                      <Input style={{borderRadius: '100px', width: '150px'}} type="number" placeholder="No. passengers" min={1} max={7}
                       onChange={(e) => { this.getValue('seats', e.target.value) }}
                       />
                     </Form.Item>
@@ -147,27 +147,28 @@ class Tab extends React.Component {
                 <div className="center">
                   <Form layout="inline">
                     <Form.Item>
-                      <Input placeholder="From..." />
+                      <Input style={{borderRadius: '100px'}} placeholder="From..." />
                     </Form.Item>
 
                     <Form.Item>
-                      <Input placeholder="To..." />
+                      <Input style={{borderRadius: '100px'}} placeholder="To..." />
                     </Form.Item>
 
                     <Form.Item>
-                      <Input type="date" placeholder="Date" />
+                      <Input style={{borderRadius: '100px'}} type="date" placeholder="Date" />
                     </Form.Item>
 
                     <Form.Item>
-                    <Input type="time" placeholder="Time" />
+                    <Input style={{borderRadius: '100px'}} type="time" placeholder="Time" />
                     </Form.Item>
 
                     <Form.Item>
-                      <Input type="number" placeholder="Seats" min={1} max={7} />
+                      <Input style={{borderRadius: '100px'}} type="number" placeholder="Seats" min={1} max={7} />
                     </Form.Item>
 
                     <Form.Item>
                       <Input
+                        style={{borderRadius: '100px'}}
                         placeholder="Price"
                         min={1} max={1000000}
                         prefix="€"
