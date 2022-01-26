@@ -35,7 +35,7 @@ class CustomLayout extends React.Component {
       </Menu>
     );
     return (
-      <Layout className="layout" style={{ backgroundColor: "##3241a2" }}>
+      <Layout className="layout" style={{ backgroundColor: "#2a3576" }}>
         <Header style={{ backgroundColor: "#2a3576" }}>
           <Menu
             theme="light"
@@ -105,7 +105,7 @@ class CustomLayout extends React.Component {
             {this.props.children}
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
+        <Footer style={{ textAlign: "center", backgroundColor: "#2a3576" }}>
         </Footer>
       </Layout>
     );
