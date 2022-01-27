@@ -101,11 +101,12 @@ class CustomLayout extends React.Component {
           </Menu>
         </Header>
         <Content style={{ padding: "0 50px" }}>
-          <div style={{ background: "#fff", padding: 24, minHeight: 280 }}>
+          <div style={{ background: "#fff", padding: 24, minHeight: 650, paddingTop: "100px" }}>
             {this.props.children}
           </div>
         </Content>
-        <Footer style={{ textAlign: "center", backgroundColor: "#2a3576" }}>
+        <Footer style={{ textAlign: "center", backgroundColor: "#2a3576", paddingBottom: "15px" }}>
+           
         </Footer>
       </Layout>
     );

@@ -87,6 +87,16 @@ export const authSignup = (username, email, password1, password2) => {
           .get(`${serverUrl}/administration/users/?username=${username}`)
           .then((res) => {
             localStorage.setItem("userId", res.data[0].id);
+            axios
+              .post(`${serverUrl}/administration/user_profiles/`, {
+                  user: res.data[0].id,
+                  chat_preferences: "I like to chat",
+                  pet_preferences: "I can take pets",
+                  smoking_preferences: "I accept smokers",
+                  time_preferences: "I'm very punctual",
+              }).then((res) => {
+                localStorage.setItem("userProfileId", res.data.id);
+              })
           });
         const token = res.data.key;
         const usrname = username;
