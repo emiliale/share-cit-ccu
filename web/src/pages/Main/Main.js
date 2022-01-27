@@ -7,6 +7,7 @@ import {
   PlusOutlined,
 } from '@ant-design/icons';
 import { Link } from "react-router-dom";
+import PlaceAutocompleteComponent from "./components/PlaceAutocompleteComponent";
 
 
 const { Title } = Typography;
@@ -54,8 +55,8 @@ const Tree = () => {
 
 
 class Tab extends React.Component {
-  state = { size: 'Large', from: '', to: '', date: '', time:'', seats: ''};
-  
+  state = { size: 'Large', from: '', to: '', date: '', time: '', seats: '' };
+
   constructor(props) {
     super(props);
 
@@ -69,134 +70,136 @@ class Tab extends React.Component {
   }
   render() {
     const { size } = this.state;
-      return (
+    return (
       <div>
         <Tabs defaultActiveKey="1" type="card" size={size} centered>
           <TabPane
             tab={
               <span>
-                <SearchOutlined/>
+                <SearchOutlined />
                 Search
               </span>
-              }
-              key="1">
-                <Title className="title">Need a ride?</Title>
+            }
+            key="1">
+            <Title className="title">Need a ride?</Title>
+            <div className="center">
+              <Form layout="inline">
+                <Form.Item style={{height: "50px"}}>
+                  <PlaceAutocompleteComponent
+                    placeholder="From..."
+                    setCoordinates={(lat, lng) => console.log(lat, lng)}
+                    setAddress={(value) => this.getValue('from', value)}
+                  />
+                </Form.Item>
 
-                <div className="center">
-                  <Form layout="inline">
-                    <Form.Item>
-                      <Input style={{borderRadius: '100px'}} placeholder="From..."  
-                        onChange={(e) => { this.getValue('from', e.target.value) }}
-                      />                   
-                    </Form.Item>
+                <Form.Item style={{height: "20px"}}>
+                <PlaceAutocompleteComponent
+                    placeholder="To..."
+                    setCoordinates={(lat, lng) => console.log(lat, lng)}
+                    setAddress={(value) => this.getValue('to', value)}
+                  />
+                </Form.Item>
 
-                    <Form.Item>
-                      <Input style={{borderRadius: '100px'}} placeholder="To..." 
-                      onChange={(e) => { this.getValue('to', e.target.value) }}
-                      />
-                    </Form.Item>
+                <Form.Item>
+                  <Input style={{ borderRadius: '100px' }} type="date" placeholder="Date"
+                    onChange={(e) => { this.getValue('date', e.target.value) }}
+                  />
+                </Form.Item>
 
-                    <Form.Item>
-                      <Input style={{borderRadius: '100px'}} type="date" placeholder="Date" 
-                      onChange={(e) => { this.getValue('date', e.target.value) }}
-                      />
-                    </Form.Item>
+                <Form.Item>
+                  <Input style={{ borderRadius: '100px' }} type="time" placeholder="Time"
+                    onChange={(e) => { this.getValue('time', e.target.value) }}
+                  />
+                </Form.Item>
+                <Form.Item>
+                  <Input style={{ borderRadius: '100px', width: '150px' }} type="number" placeholder="No. passengers" min={1} max={7}
+                    onChange={(e) => { this.getValue('seats', e.target.value) }}
+                  />
+                </Form.Item>
+              </Form>
+            </div>
 
-                    <Form.Item>
-                      <Input style={{borderRadius: '100px'}} type="time" placeholder="Time" 
-                        onChange={(e) => { this.getValue('time', e.target.value) }}
-                      />
-                    </Form.Item>
-
-                    <Form.Item>
-                      <Input style={{borderRadius: '100px', width: '150px'}} type="number" placeholder="No. passengers" min={1} max={7}
-                      onChange={(e) => { this.getValue('seats', e.target.value) }}
-                      />
-                    </Form.Item>
-                  </Form>
-                </div>
-                
-                <Link
-                  to={{
-                    pathname: "/choose_rides/",
-                    state:  this.state 
-                  }}
-                >
-                  <Button
-                    type="primary"
-                    shape="round"
-                    className="button"
-                    style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-                    >
-                      Search
-                  </Button>
-                </Link>
-            </TabPane>
+            <Link
+              to={{
+                pathname: "/choose_rides/",
+                state: this.state
+              }}
+            >
+              <Button
+                type="primary"
+                shape="round"
+                className="button"
+                style={{ background: "#eb2f96", borderColor: "#ffffff", marginTop: "50px"}}
+              >
+                Search
+              </Button>
+            </Link>
+          </TabPane>
 
           <TabPane
             tab={
               <span>
-                <PlusOutlined/>
+                <PlusOutlined />
                 Post
               </span>
-              }
-              key="2">
+            }
+            key="2">
 
-                <Title className="title">Share your ride</Title>
+            <Title className="title">Share your ride</Title>
 
-                <div className="center">
-                  <Form layout="inline">
-                    <Form.Item>
-                      <Input style={{borderRadius: '100px'}} placeholder="From..." />
-                    </Form.Item>
+            <div className="center">
+              <Form layout="inline">
+                <Form.Item>
+                  <Input style={{ borderRadius: '100px' }} placeholder="From..." />
+                </Form.Item>
 
-                    <Form.Item>
-                      <Input style={{borderRadius: '100px'}} placeholder="To..." />
-                    </Form.Item>
+                <Form.Item>
+                  <Input style={{ borderRadius: '100px' }} placeholder="To..." />
+                </Form.Item>
 
-                    <Form.Item>
-                      <Input style={{borderRadius: '100px'}} type="date" placeholder="Date" />
-                    </Form.Item>
+                <Form.Item>
+                  <Input style={{ borderRadius: '100px' }} type="date" placeholder="Date" />
+                </Form.Item>
 
-                    <Form.Item>
-                    <Input style={{borderRadius: '100px'}} type="time" placeholder="Time" />
-                    </Form.Item>
+                <Form.Item>
+                  <Input style={{ borderRadius: '100px' }} type="time" placeholder="Time" />
+                </Form.Item>
 
-                    <Form.Item>
-                      <Input style={{borderRadius: '100px'}} type="number" placeholder="Seats" min={1} max={7} />
-                    </Form.Item>
+                <Form.Item>
+                  <Input style={{ borderRadius: '100px' }} type="number" placeholder="Seats" min={1} max={7} />
+                </Form.Item>
 
-                    <Form.Item>
-                      <Input
-                        style={{borderRadius: '100px'}}
-                        placeholder="Price"
-                        min={1} max={1000000}
-                        prefix="€"
-                        />
-                    </Form.Item>
+                <Form.Item>
+                  <Input
+                    style={{ borderRadius: '100px' }}
+                    placeholder="Price"
+                    min={1} max={1000000}
+                    prefix="€"
+                  />
+                </Form.Item>
 
-                    <Form.Item>
-                      <Tree />
-                    </Form.Item>
-                  </Form>
-                </div>
+                <Form.Item>
+                  <Tree />
+                </Form.Item>
+              </Form>
+            </div>
 
-                <Button
-                  type="primary"
-                  shape="round"
-                  className="button"
-                  style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-                  onClick={info}
-                  >
-                    Share
-                </Button>
+            <Button
+              type="primary"
+              shape="round"
+              className="button"
+              style={{ background: "#eb2f96", borderColor: "#ffffff" }}
+              onClick={info}
+            >
+              Share
+            </Button>
 
-            </TabPane>
+          </TabPane>
         </Tabs>
-      </div>  
+      </div>
 
-        
-       
+
+
     );
   }
 
