@@ -25,5 +25,6 @@ class PassengerRide(models.Model):
     driver = models.ForeignKey(DriverRide, related_name="driver_passenger", on_delete=models.SET_NULL, null=True, blank=True)
     status = models.CharField(max_length=255, null=True, blank=True)
     rate = models.FloatField(null=True, blank=True)
+    passenger = models.ForeignKey(UserProfile, related_name="passenger_user", on_delete=models.SET_NULL, null=True, blank=True)
 
 

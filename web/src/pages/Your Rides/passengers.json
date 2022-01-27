@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1,
+        "gender": "female",
+        "name": {
+            "title": "Ms",
+            "first": "Rosalinde",
+            "last": "Weyers"
+        },
+        "time": "28/12/21 - 18:30 - punctual",
+        "rate": 4.8,
+        "start_location": "Alameda",
+        "stop_location": "Almada",
+        "price": 2.3,
+        "age": 27,
+        "email": "rosalinde.weyers@example.com",
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/27.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/27.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/27.jpg"
+        },
+        "nat": "DE"
+    },
+    {
+        "id": 2,
+        "gender": "female",
+        "name": {
+            "title": "Miss",
+            "first": "Irene",
+            "last": "Ramos"
+        },
+        "rate": 5.0,
+        "time": "26/12/21 - 18:00 - punctual",
+        "start_location": "Almada",
+        "stop_location": "Arrois",
+        "price": 5.0,
+        "age": 36,
+        "email": "irene.ramos@example.com",
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/1.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/1.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/1.jpg"
+        },
+        "nat": "ES"
+    },
+    {
+        "id": 3,
+        "gender": "male",
+        "name": {
+            "title": "Mr",
+            "first": "Grayson",
+            "last": "Evans"
+        },
+        "rate": 4.5,
+        "time": "23/12/21 - 11:00 - punctual",
+        "start_location": "Alfama",
+        "stop_location": "Almada",
+        "price": 3.10,
+        "age": 41,
+        "email": "grayson.evans@example.com",
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/94.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/94.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/94.jpg"
+        },
+        "nat": "NZ"
+    },
+    {
+        "id": 4,
+        "gender": "female",
+        "name": {
+            "title": "Miss",
+            "first": "Joline",
+            "last": "Bijen"
+        },
+        "rate": 4.7,
+        "time": "13/12/21 - 11:10 - flexible",
+        "start_location": "Arreiro",
+        "stop_location": "Azul",
+        "price": 4.8,
+        "age": 26,
+        "email": "joline.bijen@example.com",
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/89.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/89.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/89.jpg"
+        },
+        "nat": "NL"
+    },
+    {
+        "id": 5,
+        "gender": "male",
+        "name": {
+            "title": "Mr",
+            "first": "Jesus",
+            "last": "Collins"
+        },
+        "rate": 4.9,
+        "time": "01/12/21 - 11:00 - flexible",
+        "start_location": "Amadora",
+        "stop_location": "Almada",
+        "price": 8.2,
+        "age": 32,
+        "email": "jesus.collins@example.com",
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/17.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/17.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/17.jpg"
+        },
+        "nat": "AU"
+    }
+]

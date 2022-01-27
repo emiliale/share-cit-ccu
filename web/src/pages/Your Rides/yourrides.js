@@ -2,11 +2,14 @@ import { TreeSelect, Tabs } from 'antd';
 import { Typography } from 'antd';
 import "./your rides.css"
 import "antd/dist/antd.css"
+import axios from "axios";
+import { Popconfirm } from "antd";
 
 import React, { useState, useEffect } from 'react';
 import { List, Avatar, Skeleton, Divider, Button, Modal } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
+import passengers from "./passengers.json"
 
 
 const { Title } = Typography;
@@ -17,41 +20,21 @@ function onChange(date, dateString) {
   console.log(date, dateString);
 }
 
-function info() {
+function info(name) {
   Modal.info({
     content: (
       <div>
-        <p>Your request has been cancelled!</p>
+        <p>{`Your request has been cancelled! ${name}`}</p>
       </div>
     ),
-    onOk() {},
+    onOk() { },
   });
 }
 
 
 const InfiniteListExample_passenger = () => {
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
-
-  const loadMoreData = () => {
-    if (loading) {
-      return;
-    }
-    setLoading(true);
-    fetch('https://randomuser.me/api/?results=10&inc=name,gender,email,nat,picture&noinfo')
-      .then(res => res.json())
-      .then(body => {
-        setData([...data, ...body.results]);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
-  };
-
-  useEffect(() => {
-    loadMoreData();
-  }, []);
+  const [data, setData] = useState(passengers);
+  const [pictures, setPictures] = useState([]);
 
   return (
     <div
@@ -65,31 +48,37 @@ const InfiniteListExample_passenger = () => {
     >
       <InfiniteScroll
         dataLength={data.length}
-        next={loadMoreData}
-        hasMore={data.length < 50}
         loader={<Skeleton avatar paragraph={{ rows: 1 }} active />}
-        endMessage={<Divider plain><span role="img" aria-label="smile">It is all, nothing more 🤐</span></Divider>}
         scrollableTarget="scrollableDiv"
       >
         <List
+          size="large"
           dataSource={data}
           renderItem={item => (
             <List.Item key={item.id}>
               <List.Item.Meta
                 avatar={<Avatar src={item.picture.large} />}
-                title={<a href="https://ant.design">{item.name.last}</a>}
-                description={item.email}
+                title={item.name.first + " " + item.name.last + ", " + item.age}
+                description={item.time + "\n" + item.start_location + "->" + item.start_location}
               />
               <div>
-                <Button 
-                  type="primary"
-                  shape="round"
-                  className="button"
-                  style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-                  onClick={info}
+                <Typography align='center' style={{ fontSize: "18px", fontWeight: "bold", paddingRight: "10px" }}>{item.price + " €"}</Typography>
+                <Popconfirm
+                  title="Are you sure you want to cancel this ride?"
+                  onConfirm={() => setData(data.filter(row => row.id != item.id))}
+                  onCancel={() => console.log("cancel")}
+                  okText="Yes"
+                  cancelText="No"
+                >
+                  <Button
+                    type="primary"
+                    shape="round"
+                    className="button"
+                    style={{ background: "#eb2f96", borderColor: "#ffffff" }}
                   >
                     Cancel
-                </Button> 
+                  </Button>
+                </Popconfirm>
               </div>
             </List.Item>
           )}
@@ -99,7 +88,7 @@ const InfiniteListExample_passenger = () => {
   );
 };
 
-const InfiniteListExample_driver= () => {
+const InfiniteListExample_driver = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
@@ -151,24 +140,24 @@ const InfiniteListExample_driver= () => {
                 description={item.email}
               />
               <div>
-              <Button 
+                <Button
                   type="primary"
                   shape="round"
                   className="button"
                   style={{ background: "#eb2f96", borderColor: "#ffffff" }}
                   onClick={info}
-                  >
-                    Change
-                </Button> 
-                <Button 
+                >
+                  Change
+                </Button>
+                <Button
                   type="primary"
                   shape="round"
                   className="button"
                   style={{ background: "#eb2f96", borderColor: "#ffffff" }}
                   onClick={info}
-                  >
-                    Requests
-                </Button> 
+                >
+                  Requests
+                </Button>
               </div>
             </List.Item>
           )}
@@ -180,7 +169,7 @@ const InfiniteListExample_driver= () => {
 
 
 
-class Tab extends React.Component {
+class YourRides extends React.Component {
   state = { size: 'Large' };
 
   onChange = e => {
@@ -197,38 +186,24 @@ class Tab extends React.Component {
               <span>
                 Passenger
               </span>
-              }
-              key="1">
-                <InfiniteListExample_passenger />
-            </TabPane>
+            }
+            key="1">
+            <InfiniteListExample_passenger />
+          </TabPane>
           <TabPane
             tab={
               <span>
                 Driver
               </span>
-              }
-              key="2">
-                <InfiniteListExample_driver />
-            </TabPane>
+            }
+            key="2">
+            <InfiniteListExample_driver />
+          </TabPane>
         </Tabs>
       </div>
     );
   }
 }
 
-class Main extends React.Component {
-  render() {
-    return (
-      <div >
-        <center>
-        <Tab />
-        </center>
-      </div>
-    );
-  }
-}
 
-
-
-
-export default Main;
+export default YourRides;

@@ -40,7 +40,7 @@ function removePassenger_ride(id) {
 export function getPassenger_rides(level) {
   return (dispatch) => {
     dispatch(requestData(level));
-    axios.get(`${serverUrl}/passenger_ride/passenger_rides/`).then((res) => {
+    axios.get(`${serverUrl}/ride/passenger_rides/`).then((res) => {
       if (res.status !== "error") dispatch(receivePassenger_rides(res.data));
       dispatch(finishRequest());
     });
@@ -50,7 +50,7 @@ export function getPassenger_rides(level) {
 export function newPassenger_ride(driver, status, rate) {
   return (dispatch) => {
     axios
-      .post(`${serverUrl}/passenger_ride/passenger_rides/`, {
+      .post(`${serverUrl}/ride/passenger_rides/`, {
         driver: driver,
         status: status,
         rate: rate,
@@ -68,7 +68,7 @@ export function newPassenger_ride(driver, status, rate) {
 export function updatePassenger_ride(passenger_rideId, driver, status, rate) {
   return (dispatch) => {
     axios
-      .put(`${serverUrl}/passenger_ride/passenger_rides/` + passenger_rideId + "/", {
+      .put(`${serverUrl}/ride/passenger_rides/` + passenger_rideId + "/", {
         driver: driver,
         status: status,
         rate: rate,
@@ -86,7 +86,7 @@ export function updatePassenger_ride(passenger_rideId, driver, status, rate) {
 export function deletePassenger_ride(passenger_rideId) {
   return (dispatch) => {
     axios
-      .delete(`${serverUrl}/passenger_ride/passenger_rides/` + passenger_rideId + "/")
+      .delete(`${serverUrl}/ride/passenger_rides/` + passenger_rideId + "/")
       .then((res) => {
         dispatch(removePassenger_ride(res.data));
         dispatch(finishRequest());
