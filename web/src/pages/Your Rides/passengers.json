@@ -7,6 +7,7 @@
             "first": "Rosalinde",
             "last": "Weyers"
         },
+        "status": "Active",
         "time": "28/12/21 - 18:30 - punctual",
         "rate": 4.8,
         "start_location": "Alameda",
@@ -29,8 +30,9 @@
             "first": "Irene",
             "last": "Ramos"
         },
+        "status": "Active",
         "rate": 5.0,
-        "time": "26/12/21 - 18:00 - punctual",
+        "time": "28/12/21 - 18:00 - punctual",
         "start_location": "Almada",
         "stop_location": "Arrois",
         "price": 5.0,
@@ -51,6 +53,7 @@
             "first": "Grayson",
             "last": "Evans"
         },
+        "status": "Archived",
         "rate": 4.5,
         "time": "23/12/21 - 11:00 - punctual",
         "start_location": "Alfama",
@@ -73,6 +76,7 @@
             "first": "Joline",
             "last": "Bijen"
         },
+        "status": "Archived",
         "rate": 4.7,
         "time": "13/12/21 - 11:10 - flexible",
         "start_location": "Arreiro",
@@ -95,6 +99,7 @@
             "first": "Jesus",
             "last": "Collins"
         },
+        "status": "Archived",
         "rate": 4.9,
         "time": "01/12/21 - 11:00 - flexible",
         "start_location": "Amadora",

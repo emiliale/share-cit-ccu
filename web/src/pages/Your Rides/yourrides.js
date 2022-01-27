@@ -59,7 +59,15 @@ const InfiniteListExample_passenger = () => {
               <List.Item.Meta
                 avatar={<Avatar src={item.picture.large} />}
                 title={item.name.first + " " + item.name.last + ", " + item.age}
-                description={item.time + "\n" + item.start_location + "->" + item.start_location}
+                description={
+                  <div>
+                    <p>{item.time}</p>
+                    <p>{item.start_location + "->" + item.stop_location}</p>
+                    {item.status != "Active" 
+                    ? <p style={{color:"#616161"}}><strong>{item.status}</strong></p>
+                    : <p style={{color:"#31962c"}}><strong>{item.status}</strong></p>}
+                  </div>
+                }
               />
               <div>
                 <Typography align='center' style={{ fontSize: "18px", fontWeight: "bold", paddingRight: "10px" }}>{item.price + " €"}</Typography>
@@ -71,10 +79,12 @@ const InfiniteListExample_passenger = () => {
                   cancelText="No"
                 >
                   <Button
-                    type="primary"
+                    disabled={item.status != "Active"}
+                    ghost={item.status != "Active"}
+                    type={"primary"}
                     shape="round"
                     className="button"
-                    style={{ background: "#eb2f96", borderColor: "#ffffff" }}
+                    style={{ background: "#eb2f96", borderColor: "#ffffff", width: "120px" }}
                   >
                     Cancel
                   </Button>
