@@ -88,16 +88,6 @@ class CustomLayout extends React.Component {
                 </Menu.Item>
               </>
             )}
-            <Menu.Item style={{ float: "left" }} key="8">
-              <Link to="/about/">
-                <Typography style={{ color: "#ffff" }}>About</Typography>
-              </Link>
-            </Menu.Item>
-            <Menu.Item style={{ float: "left" }} key="9">
-              <Link to="/help/">
-                <Typography style={{ color: "#ffff" }}>Help</Typography>
-              </Link>
-            </Menu.Item>
           </Menu>
         </Header>
         <Content style={{ padding: "0 50px" }}>

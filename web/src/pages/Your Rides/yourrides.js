@@ -187,7 +187,7 @@ class YourRides extends React.Component {
     const { size } = this.state;
     return (
       <div>
-        <Tabs defaultActiveKey="2" type="card" size={size} centered>
+        <Tabs defaultActiveKey="1" type="card" size={size} centered>
           <TabPane
             tab={
               <span>
