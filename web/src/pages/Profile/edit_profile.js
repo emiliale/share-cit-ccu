@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import {
     LoadingOutlined, 
     PlusOutlined,
+    ArrowLeftOutlined 
   } from '@ant-design/icons';
 
 const { Title, Text } = Typography;
@@ -64,6 +65,7 @@ class Profile extends React.Component {
     return (
       <div>
             <center>
+            <Link to="/Profile/"><Button type="link " style={{ marginLeft: 'auto', float: "left" }}> <ArrowLeftOutlined /> Go back </Button></Link>
                 <div className="row"> 
                 
                     <div className="left-panel box" >
