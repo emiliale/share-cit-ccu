@@ -25,7 +25,7 @@ function info() {
         <p>Your ride has been shared!</p>
       </div>
     ),
-    onOk() {},
+    onOk() { },
   });
 }
 
@@ -84,7 +84,7 @@ class Tab extends React.Component {
             <Title className="title">Need a ride?</Title>
             <div className="center">
               <Form layout="inline">
-                <Form.Item style={{height: "50px"}}>
+                <Form.Item style={{ height: "50px" }}>
                   <PlaceAutocompleteComponent
                     placeholder="From..."
                     setCoordinates={(lat, lng) => console.log(lat, lng)}
@@ -92,8 +92,8 @@ class Tab extends React.Component {
                   />
                 </Form.Item>
 
-                <Form.Item style={{height: "20px"}}>
-                <PlaceAutocompleteComponent
+                <Form.Item style={{ height: "20px" }}>
+                  <PlaceAutocompleteComponent
                     placeholder="To..."
                     setCoordinates={(lat, lng) => console.log(lat, lng)}
                     setAddress={(value) => this.getValue('to', value)}
@@ -129,7 +129,7 @@ class Tab extends React.Component {
                 type="primary"
                 shape="round"
                 className="button"
-                style={{ background: "#eb2f96", borderColor: "#ffffff", marginTop: "50px"}}
+                style={{ background: "#eb2f96", borderColor: "#ffffff", marginTop: "50px" }}
               >
                 Search
               </Button>
@@ -149,14 +149,20 @@ class Tab extends React.Component {
 
             <div className="center">
               <Form layout="inline">
-                <Form.Item>
-                  <Input style={{ borderRadius: '100px' }} placeholder="From..." />
+                <Form.Item style={{ height: "20px" }}>
+                  <PlaceAutocompleteComponent
+                    placeholder="From..."
+                    setCoordinates={(lat, lng) => console.log(lat, lng)}
+                    setAddress={(value) => this.getValue('to', value)}
+                  />
                 </Form.Item>
-
-                <Form.Item>
-                  <Input style={{ borderRadius: '100px' }} placeholder="To..." />
+                <Form.Item style={{ height: "20px" }}>
+                  <PlaceAutocompleteComponent
+                    placeholder="To..."
+                    setCoordinates={(lat, lng) => console.log(lat, lng)}
+                    setAddress={(value) => this.getValue('to', value)}
+                  />
                 </Form.Item>
-
                 <Form.Item>
                   <Input style={{ borderRadius: '100px' }} type="date" placeholder="Date" />
                 </Form.Item>
