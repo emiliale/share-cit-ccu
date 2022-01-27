@@ -4,12 +4,13 @@ import "./your rides.css"
 import "antd/dist/antd.css"
 import axios from "axios";
 import { Popconfirm } from "antd";
-
+import { FieldTimeOutlined, UserOutlined } from '@ant-design/icons';
 import React, { useState, useEffect } from 'react';
 import { List, Avatar, Skeleton, Divider, Button, Modal } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import passengers from "./passengers.json"
+import drivers from "./drivers.json"
 
 
 const { Title } = Typography;
@@ -62,10 +63,10 @@ const InfiniteListExample_passenger = () => {
                 description={
                   <div>
                     <p>{item.time}</p>
-                    <p>{item.start_location + "->" + item.stop_location}</p>
-                    {item.status != "Active" 
-                    ? <p style={{color:"#616161"}}><strong>{item.status}</strong></p>
-                    : <p style={{color:"#31962c"}}><strong>{item.status}</strong></p>}
+                    <p>{item.start_location + " -> " + item.stop_location}</p>
+                    {item.status != "Active"
+                      ? <p style={{ color: "#616161" }}><strong>{item.status}</strong></p>
+                      : <p style={{ color: "#31962c" }}><strong>{item.status}</strong></p>}
                   </div>
                 }
               />
@@ -100,27 +101,7 @@ const InfiniteListExample_passenger = () => {
 
 const InfiniteListExample_driver = () => {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
-
-  const loadMoreData = () => {
-    if (loading) {
-      return;
-    }
-    setLoading(true);
-    fetch('https://randomuser.me/api/?results=10&inc=name,gender,email,nat,picture&noinfo')
-      .then(res => res.json())
-      .then(body => {
-        setData([...data, ...body.results]);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
-  };
-
-  useEffect(() => {
-    loadMoreData();
-  }, []);
+  const [data, setData] = useState(drivers);
 
   return (
     <div
@@ -134,37 +115,53 @@ const InfiniteListExample_driver = () => {
     >
       <InfiniteScroll
         dataLength={data.length}
-        next={loadMoreData}
-        hasMore={data.length < 50}
         loader={<Skeleton avatar paragraph={{ rows: 1 }} active />}
-        endMessage={<Divider plain>It is all, nothing more 🤐</Divider>}
         scrollableTarget="scrollableDiv"
       >
         <List
+          size="large"
           dataSource={data}
           renderItem={item => (
             <List.Item key={item.id}>
               <List.Item.Meta
-                avatar={<Avatar src={item.picture.large} />}
-                title={<a href="https://ant.design">{item.name.last}</a>}
-                description={item.email}
+                title={<div> <p><FieldTimeOutlined />{"\t" + item.time}</p></div>}
+                description={
+                  <div>
+                    <p>{item.start_location + " -> " + item.stop_location}</p>
+                    {item.status != "Active"
+                      ? <p style={{ color: "#616161" }}><strong>{item.status}</strong></p>
+                      : <p style={{ color: "#31962c" }}><strong>{item.status}</strong></p>}
+                  </div>
+                }
               />
+              <Typography align='center'
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "bold",
+                  paddingRight: "50px",
+                  paddingTop: "18px"
+                }}>
+                <p>{item.price + " €"}</p>
+                <p>{item.seats + " "}<UserOutlined /></p>
+              </Typography>
               <div>
                 <Button
-                  type="primary"
+                  disabled={item.status != "Active"}
+                  ghost={item.status != "Active"}
+                  type={"primary"}
                   shape="round"
                   className="button"
-                  style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-                  onClick={info}
+                  style={{ background: "#eb2f96", borderColor: "#ffffff", width: "120px" }}
                 >
                   Change
                 </Button>
                 <Button
-                  type="primary"
+                  disabled={item.status != "Active"}
+                  ghost={item.status != "Active"}
+                  type={"primary"}
                   shape="round"
                   className="button"
-                  style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-                  onClick={info}
+                  style={{ background: "#eb2f96", borderColor: "#ffffff", width: "120px" }}
                 >
                   Requests
                 </Button>
@@ -190,7 +187,7 @@ class YourRides extends React.Component {
     const { size } = this.state;
     return (
       <div>
-        <Tabs defaultActiveKey="1" type="card" size={size} centered>
+        <Tabs defaultActiveKey="2" type="card" size={size} centered>
           <TabPane
             tab={
               <span>

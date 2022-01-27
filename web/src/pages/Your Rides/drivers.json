@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "status": "Active",
+        "time": "25/12/21 - 11:30",
+        "start_location": "Alameda",
+        "stop_location": "Almada",
+        "price": 2.3,
+        "seats": 1
+    },
+    {
+        "id": 2,
+        "status": "Archived",
+        "time": "23/12/21 - 18:00",
+        "start_location": "Almada",
+        "stop_location": "Arrois",
+        "price": 5.0,
+        "seats": 3
+    },
+    {
+        "id": 3,
+        "status": "Archived",
+        "time": "21/12/21 - 11:00",
+        "start_location": "Alfama",
+        "stop_location": "Almada",
+        "price": 3.10,
+        "seats": 1
+    }
+]
