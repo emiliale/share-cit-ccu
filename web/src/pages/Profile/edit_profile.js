@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Button, Collapse, Divider, Radio, Upload, Space } from 'antd'
+import { Typography, Input, Collapse, Divider, Radio, Upload, Space, Button } from 'antd'
 import { Link } from "react-router-dom";
 import {
     LoadingOutlined, 
@@ -64,18 +64,31 @@ class Profile extends React.Component {
     return (
       <div>
             <center>
-            <Link to="/Edit_Profile/"><Button type="link " style={{ marginLeft: 'auto', float: "right" }}> Edit profile </Button></Link>
-
                 <div className="row"> 
+                
                     <div className="left-panel box" >
                         <Title>Your Profile</Title>
                         <Divider orientation="left"></Divider>
                         <Space direction="vertical">
                             <Avatar />
-                            <h1>Name</h1>
-                            <Text>Age, City</Text>
-                        </Space>
-                        <h4>My car: .... </h4>
+                             <Input placeholder="Name" /> 
+                             
+                             <Button type="primary">Save</Button>
+
+                             <Input placeholder="Age" /> 
+                             
+                             <Button type="primary">Save</Button>
+                             
+                             
+                             <Input placeholder="City" /> 
+                             
+                             <Button type="primary">Save</Button>      
+
+                             <Input placeholder="Car Model" /> 
+                             
+                             <Button type="primary">Save</Button>
+                                               </Space>
+
                     </div>
                     <div className="right-panel box" >
                         <Title>Your Preferences</Title>

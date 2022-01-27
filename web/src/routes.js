@@ -9,6 +9,8 @@ import Help from "./pages/Help/Help";
 import Rides from "./pages/Your Rides/yourrides";
 import Choose_rides from "./pages/Choose_rides/Choose_rides";
 import Profile from "./pages/Profile/Profile";
+import Edit_Profile from "./pages/Profile/edit_profile";
+
 
 const BaseRouter = () => (
   <div>
@@ -20,6 +22,7 @@ const BaseRouter = () => (
     <Route exact path="/your_rides/" component={Rides} />{" "}
     <Route exact path="/choose_rides/" component={Choose_rides} />{" "}
     <Route exact path="/profile/" component={Profile} />{" "}
+    <Route exact path="/edit_profile/" component={Edit_Profile} />{" "}
   </div>
 );
 
