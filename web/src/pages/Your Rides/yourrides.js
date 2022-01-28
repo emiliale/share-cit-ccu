@@ -1,4 +1,4 @@
-import { TreeSelect, Tabs } from 'antd';
+import { TreeSelect, Tabs, Popover, Space } from 'antd';
 import { Typography } from 'antd';
 import "./your rides.css"
 import "antd/dist/antd.css"
@@ -16,6 +16,34 @@ import { Link } from 'react-router-dom';
 const { Title } = Typography;
 const { TreeNode } = TreeSelect;
 const { TabPane } = Tabs;
+
+const content = (
+  <div>
+    <centered>
+      <p>Ana Lopes, 25 {" "}
+        
+      <Space>
+        <Button
+        shape="round"
+        className="button"
+        style={{ background: "#ffffff", borderColor: "#eb2f96" }}
+        >
+          Accept
+        </Button>  
+        <Button
+          shape="round"
+          className="button"
+          style={{ background: "#ffffff", borderColor: "#eb2f96" }}
+        >
+          Reject
+        </Button>  
+        </Space>
+      </p>
+      <p>Content</p>
+      
+    </centered>
+  </div>
+);
 
 function onChange(date, dateString) {
   console.log(date, dateString);
@@ -157,16 +185,18 @@ const InfiniteListExample_driver = () => {
                     Change
                   </Button>
                 </Link>
-                <Button
-                  disabled={item.status != "Active"}
-                  ghost={item.status != "Active"}
-                  type={"primary"}
-                  shape="round"
-                  className="button"
-                  style={{ background: "#eb2f96", borderColor: "#ffffff", width: "120px" }}
-                >
-                  Requests
-                </Button>
+                <Popover content={content} title="Requests">
+                  <Button
+                    disabled={item.status != "Active"}
+                    ghost={item.status != "Active"}
+                    type={"primary"}
+                    shape="round"
+                    className="button"
+                    style={{ background: "#eb2f96", borderColor: "#ffffff", width: "120px" }}
+                  >
+                    Requests
+                  </Button>
+                </Popover>
               </div>
             </List.Item>
           )}
