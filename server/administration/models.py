@@ -16,3 +16,4 @@ class UserProfile(models.Model):
     location = models.ForeignKey(Location, related_name="profile_location", on_delete=models.SET_NULL, null=True, blank=True)
     passenger_rate = models.FloatField(null=True, blank=True)
     driver_rate = models.FloatField(null=True, blank=True)
+    picture = models.TextField(null=True, blank=True)
