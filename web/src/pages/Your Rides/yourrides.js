@@ -10,6 +10,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 import passengers from "./passengers.json"
 import drivers from "./drivers.json"
+import { Link } from 'react-router-dom';
 
 
 const { Title } = Typography;
@@ -144,16 +145,18 @@ const InfiniteListExample_driver = () => {
                 <p>{item.seats + " "}<UserOutlined /></p>
               </Typography>
               <div>
-                <Button
-                  disabled={item.status != "Active"}
-                  ghost={item.status != "Active"}
-                  type={"primary"}
-                  shape="round"
-                  className="button"
-                  style={{ background: "#eb2f96", borderColor: "#ffffff", width: "120px" }}
-                >
-                  Change
-                </Button>
+                <Link to={{ pathname: "/edit_ride/" }}>
+                  <Button
+                    disabled={item.status != "Active"}
+                    ghost={item.status != "Active"}
+                    type={"primary"}
+                    shape="round"
+                    className="button"
+                    style={{ background: "#eb2f96", borderColor: "#ffffff", width: "120px" }}
+                  >
+                    Change
+                  </Button>
+                </Link>
                 <Button
                   disabled={item.status != "Active"}
                   ghost={item.status != "Active"}
