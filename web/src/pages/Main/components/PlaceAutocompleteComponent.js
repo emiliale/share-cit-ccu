@@ -18,6 +18,8 @@ function PlacesAutocompleteComponent(props) {
     setAddress(value);
     setCoordinates(latLng);
     props.setCoordinates(latLng.lat, latLng.lng);
+    console.log(latLng.lat)
+    console.log(latLng.lng)
     props.setAddress(value);
   };
 

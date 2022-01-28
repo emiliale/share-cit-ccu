@@ -1,0 +1,134 @@
+[
+    {
+        "id": "1",
+        "gender": "male",
+        "name": {
+            "title": "Mr",
+            "first": "Alco",
+            "last": "Dijkhuis"
+        },
+        "time": "28/01/21 - 18:30 - punctual",
+        "rate": 4.8,
+        "start_location": "Alameda",
+        "stop_location": "Almada",
+        "price": 2.3,
+        "age": 27,
+        "email": "alco.dijkhuis@example.com",
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/95.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/95.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/95.jpg"
+        },
+        "nat": "NL"
+    },
+    {
+        "id": "2",
+        "gender": "male",
+        "name": {
+            "title": "Mr",
+            "first": "Ludger",
+            "last": "Feldhaus"
+        },
+        "age": 45,
+        "time": "28/01/21 - 18:20 - punctual",
+        "rate": 5.0,
+        "start_location": "Alameda",
+        "stop_location": "Almada",
+        "price": 2.5,
+        "email": "ludger.feldhaus@example.com",
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/99.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/99.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/99.jpg"
+        },
+        "nat": "DE"
+    },
+    {
+        "id": "3",
+        "gender": "male",
+        "name": {
+            "title": "Mr",
+            "first": "Niete",
+            "last": "Moraes"
+        },
+        "age": 32,
+        "time": "28/01/21 - 18:20 - flexible",
+        "rate": 4.9,
+        "start_location": "Alameda",
+        "stop_location": "Almada",
+        "price": 2.5,
+        "email": "niete.moraes@example.com",
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/92.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/92.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/92.jpg"
+        },
+        "nat": "BR"
+    },
+    {
+        "id": "4",
+        "gender": "male",
+        "name": {
+            "title": "Mr",
+            "first": "Emmerich",
+            "last": "Mäder"
+        },
+        "age": 33,
+        "time": "28/01/21 - 18:00 - flexible",
+        "rate": 4.6,
+        "start_location": "Alameda",
+        "stop_location": "Almada",
+        "price": 2.7,
+        "email": "emmerich.mader@example.com",
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/18.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/18.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/18.jpg"
+        },
+        "nat": "DE"
+    },
+    {
+        "id": "5",
+        "gender": "female",
+        "name": {
+            "title": "Miss",
+            "first": "Malwina",
+            "last": "Kowalska"
+        },
+        "age": 23,
+        "time": "28/01/21 - 18:30 - punctual",
+        "rate": 4.7,
+        "start_location": "Arrois",
+        "stop_location": "Almada",
+        "price": 2.5,
+        "email": "brn.hmdy@example.com",
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/78.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/78.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/78.jpg"
+        },
+        "nat": "IR"
+    },
+    {
+        "id": "6",
+        "gender": "female",
+        "name": {
+            "title": "Miss",
+            "first": "Izzie",
+            "last": "Willis"
+        },
+        "age": 31,
+        "time": "28/01/21 - 18:20 - flexible",
+        "rate": 4.4,
+        "start_location": "Alfama",
+        "stop_location": "Almada",
+        "price": 3,
+        "email": "izzie.willis@example.com",
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/66.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/66.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/66.jpg"
+        },
+        "nat": "GB"
+    }
+]

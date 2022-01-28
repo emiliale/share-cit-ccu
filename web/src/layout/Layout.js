@@ -91,7 +91,7 @@ class CustomLayout extends React.Component {
           </Menu>
         </Header>
         <Content style={{ padding: "0 50px" }}>
-          <div style={{ background: "#fff", padding: 24, minHeight: 650, paddingTop: "100px" }}>
+          <div style={{ background: "#fff", padding: 24, minHeight: 650 }}>
             {this.props.children}
           </div>
         </Content>

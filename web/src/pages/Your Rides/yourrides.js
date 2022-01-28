@@ -2,7 +2,6 @@ import { TreeSelect, Tabs } from 'antd';
 import { Typography } from 'antd';
 import "./your rides.css"
 import "antd/dist/antd.css"
-import axios from "axios";
 import { Popconfirm } from "antd";
 import { FieldTimeOutlined, UserOutlined } from '@ant-design/icons';
 import React, { useState, useEffect } from 'react';
