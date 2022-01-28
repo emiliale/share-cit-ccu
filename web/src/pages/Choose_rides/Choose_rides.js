@@ -6,6 +6,7 @@ import {
   withGoogleMap,
   GoogleMap,
   Marker,
+  Polyline
 } from "react-google-maps";
 import riders from "./riders.json"
 
@@ -33,11 +34,26 @@ function info_desc() {
 
 const MapWithAMarker = withGoogleMap(props =>
   <GoogleMap
-    defaultZoom={8}
-    defaultCenter={{ lat: 38.736832, lng: -9.137989 }}
+    defaultZoom={12}
+    defaultCenter={{ lat: 38.716832, lng: -9.137989 }}
   >
     <Marker
-      position={{ lat: 38.736832, lng: -9.137989 }}
+      position={{ lat: 38.7367235, lng: -9.1325798 }}
+    />
+    <Marker
+      position={{ lat: 38.6765238, lng: -9.165104699999999 }}
+    />
+    <Polyline
+      path={[
+        { lat: 38.7367235, lng: -9.1325798 },
+        { lat: 38.6765238, lng: -9.165104699999999 }
+      ]}
+      geodesic={true}
+      options={{
+        strokeColor: "#ff2527",
+        strokeOpacity: 0.75,
+        strokeWeight: 2
+      }}
     />
   </GoogleMap>
 );
