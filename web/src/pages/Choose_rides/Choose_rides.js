@@ -127,7 +127,7 @@ class Choose_rides extends React.Component {
   render() {
     return (
       <div>
-        <Descriptions className="center" bordered size={"small"} >
+        <Descriptions className="center" bordered="True" size={"small"} >
           <Descriptions.Item label="From:">{this.props.location.state.from}</Descriptions.Item>
           <Descriptions.Item label="To:">{this.props.location.state.to}</Descriptions.Item>
           <Descriptions.Item label="Date:">{this.props.location.state.date}</Descriptions.Item>
