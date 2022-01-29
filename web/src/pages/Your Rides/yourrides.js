@@ -17,16 +17,38 @@ const { Title } = Typography;
 const { TreeNode } = TreeSelect;
 const { TabPane } = Tabs;
 
+function info_accept() {
+  Modal.info({
+    content: (
+      <div>
+        <p>Ana has been accepted!</p>
+      </div>
+    ),
+    onOk() { },
+  });
+}
+
+function info_reject() {
+  Modal.info({
+    content: (
+      <div>
+        <p>Ana has been rejected!</p>
+      </div>
+    ),
+    onOk() { },
+  });
+}
+
 const content = (
   <div>
     <centered>
-      <p>Ana Lopes, 25 {" "}
-        
+      <p><Avatar size={64} icon={<UserOutlined />} /> Ana Lopes, 25 {" "}       
       <Space>
         <Button
         shape="round"
         className="button"
         style={{ background: "#ffffff", borderColor: "#eb2f96" }}
+        onClick={info_accept}
         >
           Accept
         </Button>  
@@ -34,13 +56,12 @@ const content = (
           shape="round"
           className="button"
           style={{ background: "#ffffff", borderColor: "#eb2f96" }}
+          onClick={info_reject}
         >
           Reject
         </Button>  
         </Space>
-      </p>
-      <p>Content</p>
-      
+      </p>     
     </centered>
   </div>
 );
