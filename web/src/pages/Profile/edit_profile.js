@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Input, Collapse, Divider, Radio, Upload, Space, Button } from 'antd'
+import { Typography, Input, Collapse, Divider, Radio, Upload, Space, Button, Form } from 'antd'
 import { Link } from "react-router-dom";
 import {
     LoadingOutlined, 
@@ -43,7 +43,7 @@ function getBase64(img, callback) {
       const uploadButton = (
         <div>
           {loading ? <LoadingOutlined /> : <PlusOutlined />}
-          <div style={{ marginTop: 8 }}>Upload</div>
+          <div style={{ marginTop: 8 }}>Upload a photo</div>
         </div>
       );
       return (
@@ -64,78 +64,75 @@ class Profile extends React.Component {
   render() {
     return (
       <div>
-            <center>
+        <center>
             <Link to="/Profile/"><Button type="link " style={{ marginLeft: 'auto', float: "left" }}> <ArrowLeftOutlined /> Go back </Button></Link>
                 <div className="row"> 
-                
                     <div className="left-panel box" >
-                        <Title>Your Profile</Title>
+                        <Title>Edit your Profile</Title>
                         <Divider orientation="left"></Divider>
                         <Space direction="vertical">
-                            <Avatar />
-                             <Input placeholder="Name" /> 
-                             
-                             <Button type="primary">Save</Button>
-
-                             <Input placeholder="Age" /> 
-                             
-                             <Button type="primary">Save</Button>
-                             
-                             
-                             <Input placeholder="City" /> 
-                             
-                             <Button type="primary">Save</Button>      
-
-                             <Input placeholder="Car Model" /> 
-                             
-                             <Button type="primary">Save</Button>
-                                               </Space>
-
-                    </div>
-                    <div className="right-panel box" >
-                        <Title>Your Preferences</Title>
-                        <Divider orientation="left"></Divider>
-                        <Collapse accordion>
-                            <Panel header="Chat" key="1">
-                            <p>
-                            <Radio.Group name="chat" defaultValue={1}>
-                            <Radio value={1}>I like to chat</Radio>
-                            <Radio value={2}>I'm okay either way</Radio>
-                            <Radio value={3}>I like to be quiet</Radio>
-                            </Radio.Group>
-                            </p>
-                            </Panel>
-                            <Panel header="Pets" key="2">
-                            <p>
-                            <Radio.Group name="chat" defaultValue={1}>
-                            <Radio value={1}>I can take pets</Radio>
-                            <Radio value={2}>Pets are sometimes okay</Radio>
-                            <Radio value={3}>I can't take pets</Radio>
-                            </Radio.Group>
-                            </p>
-                            </Panel>
-                            <Panel header="Smoking" key="3">
-                            <p>
-                            <Radio.Group name="chat" defaultValue={1}>
-                            <Radio value={1}>I accept smokers</Radio>
-                            <Radio value={2}>No smokers</Radio>
-                            </Radio.Group>
-                            </p>
-                            </Panel>
-                            <Panel header="Punctuality" key="4">
-                            <p>
-                            <Radio.Group name="chat" defaultValue={1}>
-                            <Radio value={1}>I'm very punctual</Radio>
-                            <Radio value={2}>Small delays are okay</Radio>
-                            <Radio value={3}>I'm flexible</Radio>
-                            </Radio.Group>
-                            </p>
-                            </Panel>
-                        </Collapse>
-                            
-                    </div>      
+                          <Avatar /> 
+                          <Form layout="inline">
+                            <Form.Item>
+                              <Input placeholder="Name" style={{ borderRadius: '100px' }} />                             
+                              <Button 
+                                type="primary" 
+                                className="button" 
+                                shape="round" 
+                                style={{ background: "#eb2f96", borderColor: "#ffffff" }}
+                                >
+                                Save
+                              </Button> 
+                            </Form.Item>
+                            <Form.Item>
+                              <Input placeholder="Age" style={{ borderRadius: '100px' }} />                
+                              <Button 
+                                type="primary" 
+                                className="button" 
+                                shape="round" 
+                                style={{ background: "#eb2f96", borderColor: "#ffffff" }}
+                              >
+                                Save
+                              </Button> 
+                            </Form.Item>
+                            <Form.Item>
+                              <Input placeholder="City" style={{ borderRadius: '100px' }}/> 
+                              <Button 
+                                type="primary" 
+                                className="button" 
+                                shape="round" 
+                                style={{ background: "#eb2f96", borderColor: "#ffffff" }}
+                              >
+                                Save
+                              </Button>   
+                            </Form.Item>
+                            <Form.Item>
+                              <Input placeholder="Car Model" style={{ borderRadius: '100px' }}/> 
+                              <Button 
+                                type="primary" 
+                                className="button" 
+                                shape="round" 
+                                style={{ background: "#eb2f96", borderColor: "#ffffff" }}                             
+                              >
+                                Save
+                              </Button>
+                            </Form.Item>
+                            <Form.Item>
+                            <Input placeholder="License plate" style={{ borderRadius: '100px' }}/> 
+                              <Button 
+                                type="primary" 
+                                className="button" 
+                                shape="round" 
+                                style={{ background: "#eb2f96", borderColor: "#ffffff" }}                             
+                              >
+                                Save
+                              </Button>           
+                            </Form.Item>
+                          </Form>
+                        </Space>
+                    </div>    
                 </div>    
-            </center>
+          </center> 
       </div>
     );
   }
