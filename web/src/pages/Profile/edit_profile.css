@@ -1,0 +1,22 @@
+.right-panel {
+    flex: 5;
+  }
+
+  .left-panel {
+    flex: 5; 
+  }
+
+  .avatar-uploader > .ant-upload {
+    width: 200px;
+    height: 200px;
+  }
+
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 10px 10px 0;
+    width: 50px; 
+  }
+  
