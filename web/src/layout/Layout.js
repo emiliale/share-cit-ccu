@@ -78,7 +78,7 @@ class CustomLayout extends React.Component {
             ) : (
               <>
                 <Menu.Item style={{ marginLeft: 'auto', float: "right" }} key="7" id="nav-dropdown">
-                  <Avatar icon={<UserOutlined />} />
+                  <Avatar src={localStorage.getItem("userId") == 1 ? "/img/mine.jpg" : "/img/profile_picture.jpg"} />
                   &nbsp;  &nbsp;
                   <Dropdown overlay={menu}>
                     <a style={{ color: "#ffff" }} className="ant-dropdown-link" onClick={e => e.preventDefault()}>
