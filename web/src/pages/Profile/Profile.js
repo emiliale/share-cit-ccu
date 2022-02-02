@@ -49,7 +49,7 @@ class Avatar extends React.Component {
     );
     return (
       <img
-        width={300}
+        width={230}
         style={{ borderRadius: '50%' }}
         src={localStorage.getItem("userId") == 1 ? "/img/mine.jpg" : "/img/profile_picture.jpg"}
       />
@@ -63,7 +63,6 @@ class Profile extends React.Component {
       <div>
         <center>
           <Link to="/Edit_Profile/"><Button type="link " style={{ marginLeft: 'auto', float: "right" }}> Edit profile </Button></Link>
-
           <div className="row">
             <div className="left-panel box" >
               <Title>Your Profile</Title>

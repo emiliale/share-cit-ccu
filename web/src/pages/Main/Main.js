@@ -135,72 +135,75 @@ class Tab extends React.Component {
               </Button>
             </Link>
           </TabPane>
+          {localStorage.getItem("userId") == 1 ?
 
-          <TabPane
-            tab={
-              <span>
-                <PlusOutlined />
-                Post
-              </span>
-            }
-            key="2">
 
-            <Title className="title">Share your ride</Title>
+            <TabPane
+              tab={
+                <span>
+                  <PlusOutlined />
+                  Post
+                </span>
+              }
+              key="2">
 
-            <div className="center">
-              <Form layout="inline">
-                <Form.Item style={{ height: "20px" }}>
-                  <PlaceAutocompleteComponent
-                    placeholder="From..."
-                    setCoordinates={(lat, lng) => console.log(lat, lng)}
-                    setAddress={(value) => this.getValue('to', value)}
-                  />
-                </Form.Item>
-                <Form.Item style={{ height: "20px" }}>
-                  <PlaceAutocompleteComponent
-                    placeholder="To..."
-                    setCoordinates={(lat, lng) => console.log(lat, lng)}
-                    setAddress={(value) => this.getValue('to', value)}
-                  />
-                </Form.Item>
-                <Form.Item>
-                  <Input style={{ borderRadius: '100px' }} type="date" placeholder="Date" />
-                </Form.Item>
+              <Title className="title">Share your ride</Title>
 
-                <Form.Item>
-                  <Input style={{ borderRadius: '100px' }} type="time" placeholder="Time" />
-                </Form.Item>
+              <div className="center">
+                <Form layout="inline">
+                  <Form.Item style={{ height: "20px" }}>
+                    <PlaceAutocompleteComponent
+                      placeholder="From..."
+                      setCoordinates={(lat, lng) => console.log(lat, lng)}
+                      setAddress={(value) => this.getValue('to', value)}
+                    />
+                  </Form.Item>
+                  <Form.Item style={{ height: "20px" }}>
+                    <PlaceAutocompleteComponent
+                      placeholder="To..."
+                      setCoordinates={(lat, lng) => console.log(lat, lng)}
+                      setAddress={(value) => this.getValue('to', value)}
+                    />
+                  </Form.Item>
+                  <Form.Item>
+                    <Input style={{ borderRadius: '100px' }} type="date" placeholder="Date" />
+                  </Form.Item>
 
-                <Form.Item>
-                  <Input style={{ borderRadius: '100px' }} type="number" placeholder="Seats" min={1} max={7} />
-                </Form.Item>
+                  <Form.Item>
+                    <Input style={{ borderRadius: '100px' }} type="time" placeholder="Time" />
+                  </Form.Item>
 
-                <Form.Item>
-                  <Input
-                    style={{ borderRadius: '100px' }}
-                    placeholder="Price"
-                    min={1} max={1000000}
-                    prefix="€"
-                  />
-                </Form.Item>
+                  <Form.Item>
+                    <Input style={{ borderRadius: '100px' }} type="number" placeholder="Seats" min={1} max={7} />
+                  </Form.Item>
 
-                <Form.Item>
-                  <Tree />
-                </Form.Item>
-              </Form>
-            </div>
+                  <Form.Item>
+                    <Input
+                      style={{ borderRadius: '100px' }}
+                      placeholder="Price"
+                      min={1} max={1000000}
+                      prefix="€"
+                    />
+                  </Form.Item>
 
-            <Button
-              type="primary"
-              shape="round"
-              className="button"
-              style={{ background: "#eb2f96", borderColor: "#ffffff" }}
-              onClick={info}
-            >
-              Share
-            </Button>
+                  <Form.Item>
+                    <Tree />
+                  </Form.Item>
+                </Form>
+              </div>
 
-          </TabPane>
+              <Button
+                type="primary"
+                shape="round"
+                className="button"
+                style={{ background: "#eb2f96", borderColor: "#ffffff" }}
+                onClick={info}
+              >
+                Share
+              </Button>
+
+            </TabPane>
+            : ""}
         </Tabs>
       </div>
 
