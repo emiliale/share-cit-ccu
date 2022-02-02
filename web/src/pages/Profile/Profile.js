@@ -88,45 +88,24 @@ class Profile extends React.Component {
             </div>
             <div className="right-panel box" >
               <Title>Your Preferences</Title>
-              <Divider orientation="left"></Divider>
-              <Collapse accordion>
-                <Panel header="Chat" key="1">
-                  <p>
-                    <Radio.Group name="chat" defaultValue={1}>
-                      <Radio value={1}>I like to chat</Radio>
-                      <Radio value={2}>I'm okay either way</Radio>
-                      <Radio value={3}>I like to be quiet</Radio>
-                    </Radio.Group>
-                  </p>
-                </Panel>
-                <Panel header="Pets" key="2">
-                  <p>
-                    <Radio.Group name="chat" defaultValue={1}>
-                      <Radio value={1}>I can take pets</Radio>
-                      <Radio value={2}>Pets are sometimes okay</Radio>
-                      <Radio value={3}>I can't take pets</Radio>
-                    </Radio.Group>
-                  </p>
-                </Panel>
-                <Panel header="Smoking" key="3">
-                  <p>
-                    <Radio.Group name="chat" defaultValue={1}>
-                      <Radio value={1}>I accept smokers</Radio>
-                      <Radio value={2}>No smokers</Radio>
-                    </Radio.Group>
-                  </p>
-                </Panel>
-                <Panel header="Punctuality" key="4">
-                  <p>
-                    <Radio.Group name="chat" defaultValue={1}>
-                      <Radio value={1}>I'm very punctual</Radio>
-                      <Radio value={2}>Small delays are okay</Radio>
-                      <Radio value={3}>I'm flexible</Radio>
-                    </Radio.Group>
-                  </p>
-                </Panel>
-              </Collapse>
-
+              <Divider orientation="left" style={{marginBottom: "100px"}}></Divider>
+              <Row justify="start" align="middle">
+                <Col span={8}><img width={40} src="/img/chat.png"></img></Col>
+                <Col span={12}><h1>I like to chat</h1></Col>
+                <Col span={4}></Col>
+                <Divider orientation="left"></Divider>
+                <Col span={8}><img width={40} src="/img/pet.png"></img></Col>
+                <Col span={12}><h1>Pets are negotiable</h1></Col>
+                <Col span={4}></Col>
+                <Divider orientation="left"></Divider>
+                <Col span={8}><img width={40} src="/img/smoke.png"></img></Col>
+                <Col span={12}><h1>No smokres</h1></Col>
+                <Col span={4}></Col>
+                <Divider orientation="left"></Divider>
+                <Col span={8}><img width={40} src="/img/time.png"></img></Col>
+                <Col span={12}><h1>I'm very punctual</h1></Col>
+                <Col span={4}></Col>
+              </Row>
             </div>
           </div>
         </center>
